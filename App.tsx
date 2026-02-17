@@ -1,5 +1,12 @@
-import React from 'react';
-import {SafeAreaView, Text, StyleSheet, FlatList, View} from 'react-native';
+import React, {useState} from 'react';
+import {
+  SafeAreaView,
+  Text,
+  StyleSheet,
+  FlatList,
+  View,
+  TextInput,
+} from 'react-native';
 
 const QUESTIONS: string[] = [
   'Company Name',
@@ -20,6 +27,42 @@ const QUESTIONS: string[] = [
   'Risk to Forecast Date?',
 ];
 
+const App = () => {
+  const [answers, setAnswers] = useState<{[key: string]: string}>({});
+
+  const handleAnswerChange = (question: string, text: string) => {
+    setAnswers(prev => ({
+      ...prev,
+      [question]: text,
+    }));
+  };
+
+  const unansweredCount = QUESTIONS.length - Object.values(answers).filter(a => a.trim() !== '').length;
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.versionLabel}>Version: F.1.2</Text>
+        <Text style={styles.title}>Sales Recorder</Text>
+        <Text style={styles.versionLabel}>Unanswered: {unansweredCount}</Text>
+      </View>
+      <FlatList
+        data={QUESTIONS}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({item}) => (
+          <QuestionItem
+            question={item}
+            value={answers[item] || ''}
+            onChangeText={text => handleAnswerChange(item, text)}
+          />
+        )}
+        contentContainerStyle={styles.list}
+        initialNumToRender={QUESTIONS.length}
+      />
+    </SafeAreaView>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -31,6 +74,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     alignItems: 'center',
+  },
+  versionLabel: {
+    fontSize: 10,
+    color: '#999',
+    marginBottom: 4,
   },
   title: {
     fontSize: 20,
@@ -47,30 +95,38 @@ const styles = StyleSheet.create({
   questionText: {
     fontSize: 16,
     color: '#333',
+    marginBottom: 8,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    padding: 10,
+    fontSize: 14,
+    color: '#333',
+    backgroundColor: '#fafafa',
   },
 });
 
-const QuestionItem = ({question}: {question: string}) => (
+const QuestionItem = ({
+  question,
+  value,
+  onChangeText,
+}: {
+  question: string;
+  value: string;
+  onChangeText: (text: string) => void;
+}) => (
   <View style={styles.questionItem}>
     <Text style={styles.questionText}>{question}</Text>
+    <TextInput
+      style={styles.input}
+      value={value}
+      onChangeText={onChangeText}
+      placeholder="Type answer here..."
+      multiline
+    />
   </View>
 );
-
-const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Sales Recorder</Text>
-      </View>
-      <FlatList
-        data={QUESTIONS}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({item}) => <QuestionItem question={item} />}
-        contentContainerStyle={styles.list}
-        initialNumToRender={QUESTIONS.length}
-      />
-    </SafeAreaView>
-  );
-};
 
 export default App;

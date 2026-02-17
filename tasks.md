@@ -13,26 +13,26 @@
     - Verified `pod install` succeeds with the new `ReactAppDependencyProvider` podspec.
 
 ## Upcoming
-- [ ] **F.1.0** Provide this list of questions for a sales person to answer [IN PROGRESS]
+- [x] **F.1.0** Provide this list of questions for a sales person to answer
     - Re-read GUIDELINES.MD AND PROJECT_SPEC.MD
-    - [ ] **F.1.0.0** Company Name
-    - [ ] **F.1.0.1** What was Topic of your conversation with the customer
-    - [ ] **F.1.0.2** What is the customer's objectives
-    - [ ] **F.1.0.3** What is the Timeline for the project
-    - [ ] **F.1.0.4** Who are the Decision makers for the project
-    - [ ] **F.1.0.5** Estimated Deal Size
-    - [ ] **F.1.0.6** Decision Makers’ Goals, Likes, and Interests?
-    - [ ] **F.1.0.7** Concerns
-    - [ ] **F.1.0.8** Competition
-    - [ ] **F.1.0.9** Budget
-    - [ ] **F.1.0.10** Marketing Support Expectations
-    - [ ] **F.1.0.11** Confidence Level
-    - [ ] **F.1.0.12** Strategy
-    - [ ] **F.1.0.13** What Does Success Look Like for Them?
-    - [ ] **F.1.0.14** Procurement, Legal, Security? Gating step?
-    - [ ] **F.1.0.15** Risk to Forecast Date?
-- [ ] **F.1.1** Answer those questions
-- [ ] **F.1.2** List questions not answered yet
+    - [x] **F.1.0.0** Company Name
+    - [x] **F.1.0.1** What was Topic of your conversation with the customer
+    - [x] **F.1.0.2** What is the customer's objectives
+    - [x] **F.1.0.3** What is the Timeline for the project
+    - [x] **F.1.0.4** Who are the Decision makers for the project
+    - [x] **F.1.0.5** Estimated Deal Size
+    - [x] **F.1.0.6** Decision Makers’ Goals, Likes, and Interests?
+    - [x] **F.1.0.7** Concerns
+    - [x] **F.1.0.8** Competition
+    - [x] **F.1.0.9** Budget
+    - [x] **F.1.0.10** Marketing Support Expectations
+    - [x] **F.1.0.11** Confidence Level
+    - [x] **F.1.0.12** Strategy
+    - [x] **F.1.0.13** What Does Success Look Like for Them?
+    - [x] **F.1.0.14** Procurement, Legal, Security? Gating step?
+    - [x] **F.1.0.15** Risk to Forecast Date?
+- [x] **F.1.1** Answer those questions
+- [ ] **F.1.2** List questions not answered yet [IN PROGRESS]
 - [ ] **F.2.0** Prompt the sales person to fill out set question
 - [ ] **F.2.3** Formatted report with Answers
 - [ ] **F.1.2.1** Run `eas login` and `eas init` (requires user intervention)

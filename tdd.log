@@ -1,38 +1,35 @@
-# TDD Log - Task F.1.0
+# TDD Log - Task F.1.1
 
 OUTSIDE-IN FLOW:
-React Component (App.tsx) -> Domain Constant (QUESTIONS)
+UI Component (QuestionItem) -> State Management (App.tsx)
 
 PLAN:
-1. Component layer (Humble View)
-   - Goal: Scaffold the App component to render a list of questions using a FlatList.
+
+1. QuestionItem Enhancement (Humble View)
+   - Goal: Add a TextInput to each question to allow user input.
    - Changes: App.tsx
-   - Verification: Manual verification on the simulator after Step 2 goes GREEN.
-   - Note: Non-TDD scaffold for the View.
+   - Verification: Manual check on simulator.
 
-2. Domain Layer (Questions List)
+2. State Management (Answering Questions)
    RED:
-   - Test name: lists all sales questions
-   - Location: __tests__/App.test.ts (or a new domain test file)
-   - Intent: Ensure the list of questions provided to the component matches the requirements in PROJECT_SPEC.md.
-
+   - Test name: updates answer for a specific question
+   - Location: __tests__/App.test.tsx
+   - Intent: Verify that when text is entered into a question's input, the app's state reflects that answer.
+   
    GREEN:
-   - Minimal implementation: Define a QUESTIONS constant in App.tsx (or a separate domain file) containing all required questions.
+   - Minimal implementation: Add a useState object in App.tsx (e.g., answers) and a handleAnswerChange function. Pass these to QuestionItem.
    - Files expected to change: App.tsx
-
+   
    COMMIT:
-   - Proposed message: feat: F.1.0: lists all sales questions
+   - Proposed message: feat: F.1.1: allows answering questions
 
-   REFACTOR:
-   - Candidate refactors (only if needed): Extract questions to a domain folder if they grow.
-   - Files expected to change: App.tsx, src/domain/questions.ts
+3. Refactor (Optional)
+   - Candidate refactor: Extract QuestionItem to its own file.
+   - COMMIT:
+   - Proposed message: refactor: F.1.1: extracts QuestionItem component
 
-   COMMIT (only if refactor happened):
-   - Proposed message: feat: F.1.0: refactor: extracts questions to domain
-
-3. Cleanup & Verification
-   - Run all tests
-   - Fix linting errors
-   - Run the app on the simulator and verify the list is visible.
-   COMMIT:
-   - Proposed message: feat: F.1.0: cleanup: final verification
+4. Cleanup & Verification
+   - Run all tests.
+   - Fix linting.
+   - COMMIT:
+   - Proposed message: feat: F.1.1: cleanup: final verification for answering

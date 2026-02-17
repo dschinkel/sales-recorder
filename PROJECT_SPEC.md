@@ -37,7 +37,7 @@ Records a summary of the conversation had with the customer.
 Answers any important questions that were missed.
 Report generated on convesation
 
-    F.1.0 [NOT STARTED] Provide this list of questions for a sales person to answer
+    F.1.0 [COMPLETED] Provide this list of questions for a sales person to answer
         F.1.0.0 Company Name
         F.1.0.1 What was Topic of your conversation with the customer
         F.1.0.2 What is the customer's objectives
@@ -54,13 +54,14 @@ Report generated on convesation
         F.1.0.13 What Does Success Look Like for Them?
         F.1.0.14 Procurement, Legal, Security? Gating step?
         F.1.0.15 Risk to Forecast Date?
-    F.1.1 Answer those questions
-    F.1.2 List questions not answered yet
-    F.1.3 Formatted report with Answers
-        F.1.3.0 Topic Answers
-        F.1.3.1 What is their objective Answers
-        F.1.3.2 Timeline Answers
-        F.1.3.3 Decision makers Answers
+    F.1.1 [COMPLETED] Answer those questions
+    F.1.2 [IN PROGRESS] List questions not answered yet
+    F.1.3 Recoding the conversation and show it in a read only section at the bottom
+    F.1.4 Formatted report with Answers
+        F.1.4.0 Topic Answers
+        F.1.4.1 What is their objective Answers
+        F.1.4.2 Timeline Answers
+        F.1.4.3 Decision makers Answers
     F.1.4 Download the report
 
 ## F.2 Use Case: Follow up questions
@@ -70,10 +71,12 @@ Report generated on convesation
 ## F.4 Can Transcribe with voice
     4.0 Ability to start recording a conversation
     4.1 Ability to record voice to answer questions. Answers are transcribed to text
-    4.2 Ability toto stop recording a conversation
+    4.2 Shows each question checked off as it is answered in green
+    4.3 Shows questions not answered in red
+    4.3 Ability to stop recording a conversation
 
 ## F.5. Answer missed Follow-up questions with voice
-    5.0 Provide a way to answer the follow-up questions via voice
+    5.1 For each unanswerd question in red, allow the sales person to record a voice answer
 
 ## F.6. Download the transcript summary
     6.0 Ability to to download the transcript as a text file.
