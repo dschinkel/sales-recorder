@@ -90,19 +90,23 @@ Before you begin, ensure you have the following installed on your local machine:
   - Android Studio
   - Android SDK and Virtual Device (Emulator)
 
-## Getting Started
+## Deploying releases to Simulator
+To deploy / update the app on the simulator
+`yarn react-native run-ios --mode Release --simulator "iPhone 17 Pro" --no-packager`
+Ensure that the name is the same as your simulator name in Xcode.
 
-### 1. Install Dependencies
+## Performance
+Ensure release builds when testing locally do not use the derivedDataPath flag
 
-```bash
-yarn install
-```
-
-### 2. Install iOS Pods (macOS only)
-
-```bash
-cd ios && pod install && cd ..
-```
+``
+xcodebuild \
+  -workspace ios/salesrecorder.xcworkspace \
+  -scheme salesrecorder \
+  -configuration Release \
+  -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+  CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" AD_HOC_CODE_SIGNING_ALLOWED=YES \
+  build
+``
 
 ## Running the Application
 
