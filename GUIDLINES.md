@@ -73,7 +73,6 @@ P0.15.1 When all items are completed in a specific task file under `tasks/`, mov
 P0.15.2 To ensure compliance with P0.15 and P0.15.1, you must perform a line-count audit of all sections in `tasks.md` and check completion status of task files before finalizing any task. You can use `wc -l` on extracted sections or manually count them when reading the file.
 
 ---
-
 ## TCR Workflow
 # Something we should try out
 

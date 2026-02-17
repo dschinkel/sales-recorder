@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "sales-recorder",
+    "slug": "sales-recorder",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dschinkel.salesrecorder"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.dschinkel.salesrecorder"
+    },
+    "web": {
+      "favicon": "./assets/images/favicon.png"
+    }
+  },
+  "name": "salesrecorder",
+  "displayName": "salesrecorder"
+}
