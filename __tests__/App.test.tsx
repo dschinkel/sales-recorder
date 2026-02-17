@@ -57,3 +57,17 @@ it('shows count of unanswered questions and updates when answered', () => {
   // One fewer unanswered question now
   expect(getByText('Unanswered: 15')).toBeTruthy();
 });
+
+it('displays formatted report with all answers in real-time', () => {
+  const {getByText, getAllByPlaceholderText, queryByText} = render(<App />);
+
+  expect(getByText('Live Summary Report')).toBeTruthy();
+
+  const firstInput = getAllByPlaceholderText('Type answer here...')[0];
+  fireEvent.changeText(firstInput, 'Acme Corp');
+
+  expect(getByText('Company Name')).toBeTruthy();
+  expect(getByText('Acme Corp')).toBeTruthy();
+
+  expect(queryByText('Concerns')).toBeNull();
+});

@@ -1,35 +1,39 @@
-# TDD Log - Task F.1.1
+# TDD Log - Task F.1.3
 
 OUTSIDE-IN FLOW:
-UI Component (QuestionItem) -> State Management (App.tsx)
+UI Component (ReportView) -> State Management (App.tsx)
 
 PLAN:
 
-1. QuestionItem Enhancement (Humble View)
-   - Goal: Add a TextInput to each question to allow user input.
+1. Report Button (Humble View)
+   - Goal: Add a "Generate Report" button at the bottom of the list.
    - Changes: App.tsx
    - Verification: Manual check on simulator.
 
-2. State Management (Answering Questions)
+2. Formatted Report Display
    RED:
-   - Test name: updates answer for a specific question
+   - Test name: displays formatted report with all answers
    - Location: __tests__/App.test.tsx
-   - Intent: Verify that when text is entered into a question's input, the app's state reflects that answer.
+   - Intent: Verify that clicking "Generate Report" shows a view containing each question followed by its corresponding answer (only for answered questions).
    
    GREEN:
-   - Minimal implementation: Add a useState object in App.tsx (e.g., answers) and a handleAnswerChange function. Pass these to QuestionItem.
+   - Minimal implementation:
+     - Add a showReport state (boolean).
+     - If showReport is true, render a scrollable View (or Modal) that maps over answered questions.
+     - Style the report with bold questions and italicized/indented answers.
    - Files expected to change: App.tsx
    
    COMMIT:
-   - Proposed message: feat: F.1.1: allows answering questions
+   - Proposed message: feat: F.1.3: displays formatted report of answers
 
-3. Refactor (Optional)
-   - Candidate refactor: Extract QuestionItem to its own file.
+3. Refactor
+   - Candidate refactor: Extract the Report logic into a dedicated component (src/components/Report.tsx).
    - COMMIT:
-   - Proposed message: refactor: F.1.1: extracts QuestionItem component
+   - Proposed message: refactor: F.1.3: extracts Report component
 
 4. Cleanup & Verification
    - Run all tests.
    - Fix linting.
+   - Update version label to Version: F.1.3.
    - COMMIT:
-   - Proposed message: feat: F.1.1: cleanup: final verification for answering
+   - Proposed message: feat: F.1.3: cleanup and version update

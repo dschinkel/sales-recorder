@@ -39,10 +39,12 @@ const App = () => {
 
   const unansweredCount = QUESTIONS.length - Object.values(answers).filter(a => a.trim() !== '').length;
 
+  const answeredQuestions = QUESTIONS.filter(q => answers[q] && answers[q].trim() !== '');
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.versionLabel}>Version: F.1.2</Text>
+        <Text style={styles.versionLabel}>Version: F.1.3</Text>
         <Text style={styles.title}>Sales Recorder</Text>
         <Text style={styles.versionLabel}>Unanswered: {unansweredCount}</Text>
       </View>
@@ -58,6 +60,20 @@ const App = () => {
         )}
         contentContainerStyle={styles.list}
         initialNumToRender={QUESTIONS.length}
+        ListFooterComponent={
+          <View style={styles.reportContainer}>
+            <Text style={styles.reportTitle}>Live Summary Report</Text>
+            {answeredQuestions.map((question, index) => (
+              <View key={index} style={styles.reportItem}>
+                <Text style={styles.reportQuestion}>{question}</Text>
+                <Text style={styles.reportAnswer}>{answers[question]}</Text>
+              </View>
+            ))}
+            {answeredQuestions.length === 0 && (
+              <Text style={styles.noDataText}>Start typing to see the report...</Text>
+            )}
+          </View>
+        }
       />
     </SafeAreaView>
   );
@@ -105,6 +121,44 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#333',
     backgroundColor: '#fafafa',
+  },
+  reportContainer: {
+    marginTop: 30,
+    paddingTop: 20,
+    borderTopWidth: 2,
+    borderTopColor: '#007AFF',
+  },
+  reportTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#007AFF',
+    marginBottom: 15,
+  },
+  reportItem: {
+    marginBottom: 15,
+    padding: 12,
+    backgroundColor: '#f0f7ff',
+    borderRadius: 8,
+    borderLeftWidth: 4,
+    borderLeftColor: '#007AFF',
+  },
+  reportQuestion: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#555',
+    textTransform: 'uppercase',
+    marginBottom: 4,
+  },
+  reportAnswer: {
+    fontSize: 16,
+    color: '#000',
+    lineHeight: 22,
+  },
+  noDataText: {
+    textAlign: 'center',
+    marginVertical: 20,
+    color: '#999',
+    fontStyle: 'italic',
   },
 });
 

@@ -55,13 +55,12 @@ Report generated on convesation
         F.1.0.14 Procurement, Legal, Security? Gating step?
         F.1.0.15 Risk to Forecast Date?
     F.1.1 [COMPLETED] Answer those questions
-    F.1.2 [IN PROGRESS] List questions not answered yet
-    F.1.3 Recoding the conversation and show it in a read only section at the bottom
-    F.1.4 Formatted report with Answers
-        F.1.4.0 Topic Answers
-        F.1.4.1 What is their objective Answers
-        F.1.4.2 Timeline Answers
-        F.1.4.3 Decision makers Answers
+    F.1.2 [COMPLETED] List questions not answered yet
+    F.1.3 [IN PROGRESS] Formatted report with Answers
+        F.1.3.0 Topic Answers
+        F.1.3.1 What is their objective Answers
+        F.1.3.2 Timeline Answers
+        F.1.3.3 Decision makers Answers
     F.1.4 Download the report
 
 ## F.2 Use Case: Follow up questions

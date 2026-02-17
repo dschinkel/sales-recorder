@@ -32,7 +32,8 @@
     - [x] **F.1.0.14** Procurement, Legal, Security? Gating step?
     - [x] **F.1.0.15** Risk to Forecast Date?
 - [x] **F.1.1** Answer those questions
-- [ ] **F.1.2** List questions not answered yet [IN PROGRESS]
+- [x] **F.1.2** List questions not answered yet
+- [ ] **F.1.3** Formatted report with Answers [IN PROGRESS]
 - [ ] **F.2.0** Prompt the sales person to fill out set question
 - [ ] **F.2.3** Formatted report with Answers
 - [ ] **F.1.2.1** Run `eas login` and `eas init` (requires user intervention)
