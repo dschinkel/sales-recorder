@@ -1,4 +1,4 @@
-# React Native Boilerplate
+# Sales Recorder
 
 ## How to use this
 1. make sure your init.sh (or `init.sh`) is marked as executable in your boilerplate repo (chmod +x init.sh). This ensures the AI agent doesn't get hung up on a "Permission Denied" error when it tries to run the bootstrap.
@@ -26,8 +26,6 @@ Why this is a "Force Multiplier" for your workflow:
 - In the context of AI coding agents like Junie, Codex, or Cursor, an @ mention is a special syntax used to explicitly "attach" a file, folder, or documentation to the conversation.
 
 **The "Seeding" Benefit**: Since you use a repo to seed new apps, having this AGENTS.md in your boilerplate ensures that every new project inherits these exact quality controls. You won't have to set up Junie's project settings every single time; it will "discover" these rules automatically.
-
-
 
 ### How your app is bootstrapped automatically
 - Junie (in Brave mode) or Codex or whatever tool you use will read AGENTS.md, see that it's a new project without the Tailwind config, and say: "I noticed the project isn't initialized. I'm running the sync script first."
@@ -109,12 +107,27 @@ cd ios && pod install && cd ..
 ## Running the Application
 
 ### Start the Metro Bundler
+## Via Expo
+`npx expo start`
+how to start via expo `expo run:ios`
 
+## Via Metro
 The Metro bundler is the JavaScript bundler for React Native. Start it in its own terminal window:
 
 ```bash
 yarn start
 ```
+This launches Metro + Expo DevTools
+Now “Open iOS Simulator” in the Expo browser panel
+
+What happens:
+1. Apple’s iOS Simulator opens
+2. Expo Go launches inside it
+3. Your app loads instantly
+
+Run on a real iPhone
+1.	Install “Expo Go” from the App Store
+2.	Scan the QR code shown in the terminal/browser
 
 ### Run on iOS
 
@@ -127,8 +140,6 @@ yarn ios
 *Note: This will attempt to launch the iOS Simulator. Ensure you have added at least one platform at the buttom in the Components tab in XCode Settings*
 
 ![iOS Simulator Setup](assets/images/ios-simulator-setup.png)
-
-
 
 ### Run on Android
 

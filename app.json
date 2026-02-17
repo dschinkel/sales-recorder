@@ -6,20 +6,25 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dschinkel.salesrecorder"
+      "bundleIdentifier": "org.reactjs.native.example.salesrecorder"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.dschinkel.salesrecorder"
+      "package": "org.reactjs.native.example.salesrecorder"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "976479ae-89ff-44c4-8f15-9242d5f027bd"
+      }
     }
   },
   "name": "salesrecorder",

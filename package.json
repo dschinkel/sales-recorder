@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "expo run:android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "lsof -ti:8081 | xargs kill -9 2>/dev/null || true && react-native start",
@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "expo": "^54.0.33",
-    "react": "18.3.1",
-    "react-native": "0.76.5"
+    "react": "19.1.0",
+    "react-native": "0.81.5"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -38,7 +38,7 @@
     "@react-native/typescript-config": "0.76.5",
     "@testing-library/react-native": "^13.0.1",
     "@types/jest": "^29.5.13",
-    "@types/react": "^18.3.12",
+    "@types/react": "~19.1.10",
     "@types/react-test-renderer": "^18.3.0",
     "babel-jest": "^29.6.3",
     "eas-cli": "^18.0.1",
@@ -46,8 +46,8 @@
     "expo-dev-client": "^6.0.20",
     "jest": "^29.6.3",
     "prettier": "2.8.8",
-    "react-test-renderer": "18.3.1",
-    "typescript": "5.0.4"
+    "react-test-renderer": "19.1.0",
+    "typescript": "~5.9.2"
   },
   "engines": {
     "node": ">=18"
