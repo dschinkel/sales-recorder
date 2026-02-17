@@ -1,29 +1,25 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
-import Header from './src/components/Header';
-import Footer from './src/components/Footer';
-import SalesForm from './src/components/SalesForm';
-
-const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Header />
-      <View style={styles.content}>
-        <SalesForm />
-      </View>
-      <Footer />
-    </SafeAreaView>
-  );
-};
+import {SafeAreaView, Text, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-  },
-  content: {
-    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
+
+
+const App = () => {
+  return <Greeting />;
+};
+
+const Greeting = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text testID="greeting">Hello World</Text>
+    </SafeAreaView>
+  );
+};
 
 export default App;

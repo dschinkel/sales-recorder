@@ -20,13 +20,7 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "976479ae-89ff-44c4-8f15-9242d5f027bd"
-      }
-    },
-    "owner": "dschinkel"
+    }
   },
   "name": "salesrecorder",
   "displayName": "salesrecorder"
