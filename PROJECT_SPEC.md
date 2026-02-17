@@ -89,12 +89,13 @@ Records a summary of the conversation had with the customer.
 Answers any important questions that were missed.
 Report generated on convesation
 
-    F.2.0 Provide this list of questions to ask
-        F.2.0.0 Topic
-        F.2.0.1 What is their objective
-        F.2.0.2 Timeline
-        F.2.0.3 Decision makers
+    F.2.0 Prompt the sales person to fill out this set question
+        F.2.0.0 What was Topic of your conversation with the customer
+        F.2.0.1 What is the customer's objective
+        F.2.0.2 What is the Timeline for the project
+        F.2.0.3 Who are the Decision makers for the project
     F.2.1 Answer those questions
+        F.2.1 Show the transcript below as they answer questions
     F.2.2 Show a list of questions not answered
     F.2.3 Formatted report with Answers
         F.2.3.0 Topic Answers
@@ -102,7 +103,6 @@ Report generated on convesation
         F.2.3.2 Timeline Answers
         F.2.3.3 Decision makers Answers
     F.2.4 Download the report
-
 
 ## F.2 Use Case: Follow up questions
 F.3 Use Case: Can send the report
