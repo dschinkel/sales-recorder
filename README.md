@@ -1,11 +1,21 @@
 # Sales Recorder
 
-## How to use this
+## How to initialize this project 
+[COMPLETED]
 1. make sure your init.sh (or `init.sh`) is marked as executable in your boilerplate repo (chmod +x init.sh). This ensures the AI agent doesn't get hung up on a "Permission Denied" error when it tries to run the bootstrap.
 2. Start a new folder for your new project: `mkdir my-new-tool && cd my-new-tool`
 3. Open Junie/Codex: Say, "Start working on the Etsy SEO parser." (or whatever you named your project)
 4. The Agent Acts: * The agent reads AGENTS.md and sees the "Standing Order."
 5. It notices the folder is empty and runs `../react-native-boilerplate/init.sh`.
+
+### How your app is bootstrapped automatically
+- Junie (in Brave mode) or Codex or whatever tool you use will read `AGENTS.md`, see that it's a new project without the Tailwind config, and say: "I noticed the project isn't initialized. I'm running the sync script first."
+- `react-native-boilerplate` repo contains a shell script that utilizes uses rsync, which is the industry standard for "smart" merging
+- After we use the bootstrapped code in a new app, whenever we want to update the bootstrap (make react-app-boilerplate smarter or provide more), by having the `init.sh` script in `react-app-boilerplate`'s AGENTS.md rule, you can just tell the agent: "Update the boilerplate in this project," and it will run the sync script, bringing in only the new improvements while leaving your app code untouched
+- By keeping the AGENTS.md updated, you ensure that Junie (in Brave mode) or Codex knows it has the green light to run this script whenever it detects the project is uninitialized
+
+### init.sh
+The `rsync -au` flag ensures that if you’ve already started customizing the code in your new app, the script won't revert your changes back to the generic boilerplate version.
 
 Result: Your boilerplate is synced, yarn is finished, and a private GitHub repo is already created and pushed before the agent even writes the first line of your SEO parser.
 
@@ -27,15 +37,6 @@ Why this is a "Force Multiplier" for your workflow:
 
 **The "Seeding" Benefit**: Since you use a repo to seed new apps, having this AGENTS.md in your boilerplate ensures that every new project inherits these exact quality controls. You won't have to set up Junie's project settings every single time; it will "discover" these rules automatically.
 
-### How your app is bootstrapped automatically
-- Junie (in Brave mode) or Codex or whatever tool you use will read AGENTS.md, see that it's a new project without the Tailwind config, and say: "I noticed the project isn't initialized. I'm running the sync script first."
-- `react-native-boilerplate` repo contains a shell script that utilizes uses rsync, which is the industry standard for "smart" merging
-- After we use the bootstrapped code in a new app, whenever we want to update the bootstrap (make react-app-boilerplate smarter or provide more), by having the `init.sh` script in `react-app-boilerplate`'s AGENTS.md rule, you can just tell the agent: "Update the boilerplate in this project," and it will run the sync script, bringing in only the new improvements while leaving your app code untouched
-- By keeping the AGENTS.md updated, you ensure that Junie (in Brave mode) or Codex knows it has the green light to run this script whenever it detects the project is uninitialized
-
-### init.sh
-The `rsync -au` flag ensures that if you’ve already started customizing the code in your new app, the script won't revert your changes back to the generic boilerplate version.
-
 ### If using Junie
 - Junie (in Brave mode) reads the AGENTS.md first. Therefore it'll also bootstrap this project automatically if it hasn't already
   - Silent Execution: It will perform the copy and the merge as part of its "Plan" phase before it ever touches your SVG code.
@@ -53,11 +54,9 @@ Open the Junie chat.
 
 Type `@`.
 
-Select your `PROJECT_SPEC.md`.
+Select or the type the file name. e.g. `PROJECT_SPEC.md`.
 
-Type your request.
-
-# Starting the Hello World Emulator
+# Starting the iOS Emulator
 ## Prerequisites
 
 Before you begin, ensure you have the following installed on your local machine:
@@ -90,23 +89,25 @@ Before you begin, ensure you have the following installed on your local machine:
   - Android Studio
   - Android SDK and Virtual Device (Emulator)
 
-## Deploying releases to Simulator
-To deploy / update the app on the simulator
-`yarn react-native run-ios --mode Release --simulator "iPhone 17 Pro" --no-packager`
-Ensure that the name is the same as your simulator name in Xcode.
+## Deploying an iOS release to a Simulator
+To push / deploy the latest code to your locally running simulator.
+
+1. Run the build
+   Ensure that the name is the same as your simulator name in Xcode.
+   ``
+   xcodebuild \
+     -workspace ios/salesrecorder.xcworkspace \
+     -scheme salesrecorder \
+     -configuration Release \
+     -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+     CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" AD_HOC_CODE_SIGNING_ALLOWED=YES \
+     build
+   ``
+2. If build was successful, run `xcrun simctl install booted ios/build/Build/Products/Release-iphonesimulator/salesrecorder.app` to push that new bundle to the simulator
+3. Run `xcrun simctl launch` to refresh the app in the simulator
 
 ## Performance
-Ensure release builds when testing locally do not use the derivedDataPath flag
-
-``
-xcodebuild \
-  -workspace ios/salesrecorder.xcworkspace \
-  -scheme salesrecorder \
-  -configuration Release \
-  -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
-  CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" AD_HOC_CODE_SIGNING_ALLOWED=YES \
-  build
-``
+Ensure release builds when testing locally do not use the `derivedDataPath` flag
 
 ## Running the Application
 
@@ -115,28 +116,8 @@ xcodebuild \
 `npx expo start`
 how to start via expo `expo run:ios`
 
-## Via Metro
-The Metro bundler is the JavaScript bundler for React Native. Start it in its own terminal window:
-
-```bash
-yarn start
-```
-This launches Metro + Expo DevTools
-Now “Open iOS Simulator” in the Expo browser panel
-
-What happens:
-1. Apple’s iOS Simulator opens
-2. Expo Go launches inside it
-3. Your app loads instantly
-
-Run on a real iPhone
-1.	Install “Expo Go” from the App Store
-2.	Scan the QR code shown in the terminal/browser
-
-### Run on iOS
-
-In a new terminal window, run:
-
+## Via Native React CLI
+This just uses vanilla React Native CLI.
 ```bash
 yarn ios
 ```
