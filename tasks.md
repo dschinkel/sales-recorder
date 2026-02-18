@@ -35,7 +35,11 @@ ACK: TASKS_READ
     - [x] **F.1.0.15** Risk to Forecast Date?
 - [x] **F.1.1** Answer those questions
 - [x] **F.1.2** List questions not answered yet
-- [ ] **F.1.3** Formatted report with Answers [IN PROGRESS]
+- [x] **F.1.3** Formatted report with Answers
+- [x] **F.10** Build and Deploy script
+    - Re-read GUIDELINES.MD AND PROJECT_SPEC.MD
+    - Created `deploy.sh` to automate build, install, and launch.
+    - Integrated with `yarn deploy` in `package.json`.
 - [ ] **F.2.0** Prompt the sales person to fill out set question
 - [ ] **F.2.3** Formatted report with Answers
 - [ ] **F.1.2.1** Run `eas login` and `eas init` (requires user intervention)

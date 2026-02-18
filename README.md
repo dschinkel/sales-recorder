@@ -100,20 +100,7 @@ Before you begin, ensure you have the following installed on your local machine:
 
 ## Deploying an iOS release to a Simulator
 To push / deploy the latest code to your locally running simulator.
-
-1. Run the build
-   Ensure that the name is the same as your simulator name in Xcode.
-   ``
-   xcodebuild \
-     -workspace ios/salesrecorder.xcworkspace \
-     -scheme salesrecorder \
-     -configuration Release \
-     -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
-     CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" AD_HOC_CODE_SIGNING_ALLOWED=YES \
-     build
-   ``
-2. If build was successful, run `xcrun simctl install booted ios/build/Build/Products/Release-iphonesimulator/salesrecorder.app` to push that new bundle to the simulator
-3. Run `xcrun simctl launch` to refresh the app in the simulator
+`yarn deploy`
 
 ## Performance
 Ensure release builds when testing locally do not use the `derivedDataPath` flag
