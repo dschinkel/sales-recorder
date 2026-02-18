@@ -1,5 +1,9 @@
 Project: `sales-recorder`
 
+At the start of any task workflow output exactly:
+ACK: PROJECT_SPEC_READ
+
+
 Purpose: A Sales Assistant / Report gatherer that allows sales people record sales 
 conversations or sales calls. After the salesperson has left a customer, this will prompt them to summarize
 the conversation they had with the customer through voice to text transcription. The final result is that it outputs

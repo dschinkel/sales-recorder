@@ -1,4 +1,6 @@
 # Tasks
+At the start of any task workflow output exactly:
+ACK: TASKS_READ
 
 ## Completed
 - [x] **F.0.1** Hello World is runnable on iOS emulator (locally)

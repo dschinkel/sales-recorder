@@ -30,11 +30,11 @@ P0.1.2 Every PLAN must include a visually appealing, styled Mermaid diagram rend
 P0.2 The PLAN must include, in the first line, the task number and the feature name.
 P0.3 The PLAN must list each planned increment and explicitly name the test(s) that will be written for each increment if (and only if) the user chose a TDD workflow in P0.0. Each TDD increment in the PLAN must strictly follow the RED → GREEN → REFACTOR cycle. The REFACTOR step MUST ALWAYS be explicitly included in the PLAN for every TDD increment, even if no immediate refactoring is anticipated, to ensure the opportunity for improvement is never overlooked.
 P0.4 After presenting the PLAN, ask whether to proceed. Do not proceed without an explicit “continue/proceed” from the user.
-P0.5 If the user tells you to proceed, copy the approved PLAN into `tdd.log` before starting implementation (only applies when the user chose a TDD workflow in P0.0).
+P0.5 If the user tells you to proceed, append the approved PLAN into `tdd.log` before starting implementation (only applies when the user chooses a TDD workflow).
 P0.5.1 When copying the PLAN into `tdd.log`, include the full PLAN text verbatim under a `PLAN:` heading.
 P0.6 After completing each step in the PLAN, summarize the step you just completed and ask to proceed to the next step. Tell me what the next step is.
 P0.7 If the user stops you midstream with a question or change request, log the interruption and the resolution in `tdd.log` (only applies when the user chose a TDD workflow in P0.0).
-P0.8 If the user reverts an implemented plan, remove the corresponding plan and its workflow entries from `tdd.log` (only applies when the user chose a TDD workflow in P0.0).
+P0.8 If the user reverts an implemented plan, remove the corresponding plan and its workflow entries from `tdd.log` (only applies when the user chose a TDD workflow).
 P0.9 For React work, when presenting a PLAN, explicitly ask whether Step 1 (Component layer) should be a non-TDD scaffold or if it should be TDD'd (which would require explicit instruction to write UI tests).
 P0.10 At the very end of a task (after all steps and cleanup), you MUST mark the task as [COMPLETED] in `tasks.md`, run all tests one last time, run the linter and fix any errors, start the app and verify no runtime errors, and then perform a final cleanup commit and push before calling `submit`.
 

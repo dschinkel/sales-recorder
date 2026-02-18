@@ -1,3 +1,7 @@
+Agent acknowledgement:
+At the start of any task workflow output exactly:
+ACK:AGENTS_READ
+
 ## Core Project Documentation
 Treat the following files as the authoritative sources for project state and behavior:
 
