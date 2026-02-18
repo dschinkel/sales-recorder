@@ -110,25 +110,7 @@ const QUESTIONS: string[] = [
   'Procurement, Legal, Security? Gating step?',
   'Risk to Forecast Date?',
 ];
-function Prompt(props: { strings: string[] }) {
-  return <>
-    {props.strings.length === 0 && (
-      <Text style={styles.noDataText}>Start typing to see the report...</Text>
-    )}
-  </>;
 
-}
-function QuestionsAnswered(props: { strings: string[], callbackfn: (question, index) => React.JSX.Element }) {
-  return <>{props.strings.map(props.callbackfn)}</>;
-
-}
-function QuestionAnswer(props: { question: any, answers: { [p: string]: string } }) {
-  return <View style={styles.reportItem}>
-    <Text style={styles.reportQuestion}>{props.question}</Text>
-    <Text style={styles.reportAnswer}>{props.answers[props.question]}</Text>
-  </View>;
-
-}
 const App = () => {
 
   const {
@@ -170,6 +152,25 @@ const App = () => {
   );
 
 };
+function Prompt(props: { strings: string[] }) {
+  return <>
+    {props.strings.length === 0 && (
+      <Text style={styles.noDataText}>Start typing to see the report...</Text>
+    )}
+  </>;
+
+}
+function QuestionsAnswered(props: { strings: string[], callbackfn: (question, index) => React.JSX.Element }) {
+  return <>{props.strings.map(props.callbackfn)}</>;
+
+}
+function QuestionAnswer(props: { question: any, answers: { [p: string]: string } }) {
+  return <View style={styles.reportItem}>
+    <Text style={styles.reportQuestion}>{props.question}</Text>
+    <Text style={styles.reportAnswer}>{props.answers[props.question]}</Text>
+  </View>;
+
+}
 
 const Question = ({
   question,
