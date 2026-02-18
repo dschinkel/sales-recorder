@@ -258,6 +258,7 @@ G1.6 You must only work on one sub-task at a time. You should never work on a to
 G1.6.1 Even if multiple sub-tasks seem trivial or related (e.g., adding three different shot counts), you MUST implement only one, verify it, and wait for explicit permission before starting the next.
 G1.7 If no task exists in tasks.md, still commit with a meaningful message.
 G1.8 When the user approves a commit prompt, you MUST immediately execute the corresponding git commit command via bash. Do not wait for the next turn.
+G1.8.1 Before committing, you MUST always let the user review the commit message you created first so that they have a chance to reword it if necessary.
 G1.9 Test descriptions (e.g., in `describe` or `it` blocks) must not contain feature numbers or task IDs. Use domain language only.
 G1.10 When all sub-tasks for a parent feature are marked as `[COMPLETED]`, you must also mark the top-level parent feature as `[COMPLETED]` in `tasks.md`.
 G1.11 You MUST top and re-run the site using `yarn dev` after completing every task (after tests pass GREEN) and fix any issues that occur during startup or runtime. This is mandatory verification before proceeding to the next task.
