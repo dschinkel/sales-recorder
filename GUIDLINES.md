@@ -262,7 +262,7 @@ R1.1 React components must be written to read like a "newspaper" (Clean Code). A
 R1.1.1 Small chunks of JSX that represent a specific behavior or domain concept must be extracted into small components (can be in the same file if appropriate).
 R1.1.2 Use domain-oriented component names (e.g., `<UploadImage />`, `<UploadedImage />`) to ensure the parent JSX speaks in domain prose.
 R1.1.3 Avoid inline conditional rendering logic (e.g., `{condition && <JSX />}`) in the parent. Move the logic into the child component as a guard clause (returning `null` if the condition is not met).
-R1.1.4 The main/parent component must be at the top of the file. Child components must be ordered below the parent, in the order in which they are called (top-to-bottom).
+R1.1.4 The main/parent component must be at the top of the file. Child components must be ordered below the parent, in the order in which they are called (top-to-bottom). Always ensure the top-most parent is before its child components going forward.
 
 R1.2 You must strictly separate application logic from React views. Views must be humble and ignorant of implementation details.
 R1.2.1 All handler logic, state management, and side effects (e.g., `FileReader`, `fetch`, etc.) MUST live in custom hooks or business/repository layers.
