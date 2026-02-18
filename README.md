@@ -2,7 +2,8 @@
 
 ## How to initialize this project 
 [COMPLETED]
-1. make sure your init.sh (or `init.sh`) is marked as executable in your boilerplate repo (chmod +x init.sh). This ensures the AI agent doesn't get hung up on a "Permission Denied" error when it tries to run the bootstrap.
+1. Clone down the `react-native-boilerplate` repo.  Clone it to the same level as your project folder.
+2. make sure your init.sh (or `init.sh`) is marked as executable in your boilerplate repo (chmod +x init.sh). This ensures the AI agent doesn't get hung up on a "Permission Denied" error when it tries to run the bootstrap.
 2. Start a new folder for your new project: `mkdir my-new-tool && cd my-new-tool`
 3. Open Junie/Codex: Say, "Start working on the Etsy SEO parser." (or whatever you named your project)
 4. The Agent Acts: * The agent reads AGENTS.md and sees the "Standing Order."
