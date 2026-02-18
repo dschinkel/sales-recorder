@@ -69,7 +69,7 @@ If manual here's the easiest way. Using the Github CLI makes it super easy for y
 Choose SSH
 Generate new SSH key (if you don’t have one)
 Upload key to GitHub
-Then clone `gh repo clone <owner>/<repo> -- --ssh`
+Then clone `gh repo clone dschinkel/sales-recorder -- --ssh`
 
 
 Before you begin, ensure you have the following installed on your local machine:
