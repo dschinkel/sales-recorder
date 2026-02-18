@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  SafeAreaView,
   Text,
   StyleSheet,
   View,
@@ -15,16 +14,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
-    padding: 20,
+    paddingTop: 60,
+    paddingBottom: 20,
+    paddingHorizontal: 20,
     backgroundColor: '#f8f8f8',
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     alignItems: 'center',
-  },
-  versionLabel: {
-    fontSize: 10,
-    color: '#999',
-    marginBottom: 4,
   },
   title: {
     fontSize: 20,
@@ -41,26 +37,21 @@ const App = () => {
   } = useAnswers(QUESTIONS);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.versionLabel}>Version: F.1.5</Text>
         <Text style={styles.title}>Sales Recorder</Text>
-        <UnansweredCount unansweredCount={unansweredCount} />
       </View>
 
       <Questions
         questions={QUESTIONS}
         answers={answers}
         handleAnswerChange={handleAnswerChange}
+        unansweredCount={unansweredCount}
       />
 
-      <Report questions={answeredQuestions} answers={answers} />
-    </SafeAreaView>
+      <Report questions={answeredQuestions} answers={answers}/>
+    </View>
   );
 };
-
-const UnansweredCount = ({unansweredCount}: {unansweredCount: number}) => (
-  <Text style={styles.versionLabel}>Unanswered: {unansweredCount}</Text>
-);
 
 export default App;
