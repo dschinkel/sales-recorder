@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 
-interface TopicInputProps {
+interface TopicProps {
   topic: string;
   onTopicChange: (text: string) => void;
 }
 
-const TopicInput: React.FC<TopicInputProps> = ({topic, onTopicChange}) => {
+const Topic = ({topic, onTopicChange}: TopicProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>What was the topic of your conversation?</Text>
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TopicInput;
+export default Topic;

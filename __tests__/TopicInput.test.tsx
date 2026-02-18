@@ -1,11 +1,11 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
-import TopicInput from '../TopicInput';
+import Topic from '../Topic.tsx';
 
-describe('TopicInput', () => {
-  it('renders the correct label and placeholder', () => {
+describe('Topic Input', () => {
+  it('shows label and placeholder', () => {
     const {getByText, getByPlaceholderText} = render(
-      <TopicInput topic="" onTopicChange={() => {}} />,
+      <Topic topic="" onTopicChange={() => {}} />,
     );
 
     expect(getByText('What was the topic of your conversation?')).toBeTruthy();
