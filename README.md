@@ -13,7 +13,7 @@ This is only done ONCE by one person initially when setting up the project for t
 6. It notices the folder is empty and runs `../react-native-boilerplate/init.sh`.
 
 #### How your app is bootstrapped automatically
-- Junie (in Brave mode) or Codex or whatever tool you use will read `AGENTS.md`, see that it's a new project without the Tailwind config, and say: "I noticed the project isn't initialized. I'm running the sync script first."
+- Junie, Codex, Cursor or whatever IDE or Agent tools you use with llms will read `AGENTS.md`, see that it's a new project without the Tailwind config, and say: "I noticed the project isn't initialized. I'm running the sync script first."
 - `react-native-boilerplate` repo contains a shell script that utilizes uses rsync, which is the industry standard for "smart" merging
 - After we use the bootstrapped code in a new app, whenever we want to update the bootstrap (make react-app-boilerplate smarter or provide more), by having the `init.sh` script in `react-app-boilerplate`'s AGENTS.md rule, you can just tell the agent: "Update the boilerplate in this project," and it will run the sync script, bringing in only the new improvements while leaving your app code untouched
 - By keeping the AGENTS.md updated, you ensure that Junie (in Brave mode) or Codex knows it has the green light to run this script whenever it detects the project is uninitialized
