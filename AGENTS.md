@@ -5,7 +5,10 @@ ACK:AGENTS_READ
 ## Core Project Documentation
 Treat the following files as the authoritative sources for project state and behavior:
 
-- **Source of Truth:** `@PROJECT_SPEC.md`
+- **Source of Truth for the project:** `@AGENTS.md`
+  - This should always be read first before any other documentation.
+  
+- **Source of Truth for Behavior:** `@PROJECT_SPEC.md`
   - Consult this first to understand feature requirements, technical stack, and design goals.
 
 - **Behavioral & Style Manual:** `@GUIDELINES.md`
