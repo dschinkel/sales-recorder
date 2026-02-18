@@ -58,31 +58,19 @@ export const QUESTIONS: string[] = [
   'Risk to Forecast Date?',
 ];
 
-interface QuestionsProps {
+interface QuestionnaireProps {
   questions: string[];
   answers: {[key: string]: string};
   handleAnswerChange: (question: string, text: string) => void;
   unansweredCount: number;
 }
 
-function Version() {
-  return <Text style={styles.versionLabel}>
-    Version: <Text style={styles.versionValue}>F.1.8</Text>
-  </Text>;
-}
-
-function UnansweredCount(props: { listHeaderComponent: number }) {
-  return <Text style={styles.versionLabel}>
-    Unanswered: <Text style={styles.versionValue}>{props.listHeaderComponent}</Text>
-  </Text>;
-}
-
 export const Questionnaire = ({
-  questions,
-  answers,
-  handleAnswerChange,
-  unansweredCount,
-}: QuestionsProps) => {
+                                questions,
+                                answers,
+                                handleAnswerChange,
+                                unansweredCount,
+                              }: QuestionnaireProps) => {
   return (
     <FlatList
       data={questions}
@@ -105,6 +93,18 @@ export const Questionnaire = ({
     />
   );
 };
+
+function Version() {
+  return <Text style={styles.versionLabel}>
+    Version: <Text style={styles.versionValue}>F.1.8</Text>
+  </Text>;
+}
+
+function UnansweredCount(props: { listHeaderComponent: number }) {
+  return <Text style={styles.versionLabel}>
+    Unanswered: <Text style={styles.versionValue}>{props.listHeaderComponent}</Text>
+  </Text>;
+}
 
 interface QuestionProps {
   question: string;
