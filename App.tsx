@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native';
 import {useAnswers} from './src/hooks/useAnswers';
-import {Questions, QUESTIONS} from './src/components/Questions';
+import {Questionnaire, QUESTIONS} from './src/components/Questionnaire.tsx';
 import {Report} from './src/components/Report';
 
 const styles = StyleSheet.create({
@@ -42,7 +42,7 @@ const App = () => {
         <Text style={styles.title}>Sales Recorder</Text>
       </View>
 
-      <Questions
+      <Questionnaire
         questions={QUESTIONS}
         answers={answers}
         handleAnswerChange={handleAnswerChange}
