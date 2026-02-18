@@ -155,7 +155,7 @@ yarn test --watch
 - `ios/` & `android/`: Native project folders.
 - `app.json`: Application metadata.
 
-## Agent Checklist
+## Team Agent Checklist Manual Verification
 These are things to always check at the start of a pair or work session to ensure the agents are indeed following `AGENTS.md` AND `GUIDELINES.md`
 These are the things that should be happening as outlined in `GUIDELINES.md`
 
