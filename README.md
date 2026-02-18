@@ -3,7 +3,7 @@
 ## How to initialize this project 
 [COMPLETED]
 
-This is only done ONCE.  You do not need to do this once the project has this boilerplate and pushed to github.
+This is only done ONCE by one person initially when setting up the project for the team.  You do not need to do this once the project has this boilerplate and pushed to github.
 
 1. Clone down the `react-native-boilerplate` repo.  Clone it to the same level as your project folder.
 2. make sure your init.sh (or `init.sh`) is marked as executable in your boilerplate repo (chmod +x init.sh). This ensures the AI agent doesn't get hung up on a "Permission Denied" error when it tries to run the bootstrap.
