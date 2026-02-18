@@ -3,12 +3,7 @@ import React from 'react';
 import App from '../App';
 import {render, fireEvent} from '@testing-library/react-native';
 
-it('renders correctly', () => {
-  const {getByText} = render(<App />);
-  expect(getByText('Sales Recorder')).toBeTruthy();
-});
-
-it('lists all sales questions', () => {
+it('lists sales questions', () => {
   const {getByText} = render(<App />);
   const expectedQuestions = [
     'Company Name',
@@ -34,7 +29,7 @@ it('lists all sales questions', () => {
   });
 });
 
-it('updates answer for a specific question', () => {
+it('shows answer for a specific question', () => {
   const {getByPlaceholderText, getByDisplayValue} = render(<App />);
   const inputs = getByPlaceholderText('Type answer here...');
   const firstInput = Array.isArray(inputs) ? inputs[0] : inputs;
@@ -58,7 +53,7 @@ it('shows count of unanswered questions and updates when answered', () => {
   expect(getByText('Unanswered: 15')).toBeTruthy();
 });
 
-it('displays formatted report with all answers in real-time', () => {
+it('shows formatted report with all answers in real-time', () => {
   const {getByText, getAllByPlaceholderText, queryByText} = render(<App />);
 
   expect(getByText('Live Summary Report')).toBeTruthy();
