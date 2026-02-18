@@ -20,6 +20,8 @@ build/
 android/build/
 ios/build/
 ios/DerivedData/
+*.log
+!tdd.log
 
 # IDE
 .idea/
