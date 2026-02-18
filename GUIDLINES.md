@@ -18,10 +18,11 @@ Do NOT output ACK when answering questions or doing non-task discussion (i.e., w
 
 ## P0. Agent Protocol (non-negotiable)
 
-P0.0 When the user says `work on task <number>`, ask this question BEFORE producing any PLAN:
-"Do you want the PLAN to include a full TDD workflow (RED → GREEN → REFACTOR + commit prompts), or a non-TDD execution plan?"
+P0.0 When the user says `work on task <number>`, ask these questions BEFORE producing any PLAN:
+1. "Do you want the PLAN to include a full TDD workflow (RED → GREEN → REFACTOR + commit prompts), or a non-TDD execution plan?"
+2. "If TDD is chosen, do you want to include UI component tests (starting TDD at the React Component layer), or start TDD at the React Hooks layer (default)?"
 
-P0.0.1 Do not present a PLAN until the user answers the question in P0.0.
+P0.0.1 Do not present a PLAN until the user answers the questions in P0.0.
 
 P0.1 Before writing or changing any code, produce a PLAN when the user says: `work on task <number>` and after resolving P0.0.
 Always present the PLAN again before proceeding to the next step in the PLAN.
@@ -35,7 +36,7 @@ P0.5.1 When copying the PLAN into `tdd.log`, include the full PLAN text verbatim
 P0.6 After completing each step in the PLAN, summarize the step you just completed and ask to proceed to the next step. Tell me what the next step is.
 P0.7 If the user stops you midstream with a question or change request, log the interruption and the resolution in `tdd.log` (only applies when the user chose a TDD workflow in P0.0).
 P0.8 If the user reverts an implemented plan, remove the corresponding plan and its workflow entries from `tdd.log` (only applies when the user chose a TDD workflow).
-P0.9 For React work, when presenting a PLAN, explicitly ask whether Step 1 (Component layer) should be a non-TDD scaffold or if it should be TDD'd (which would require explicit instruction to write UI tests).
+P0.9 For React work, when presenting a PLAN, ensure the starting point aligns with the choice made in P0.0 (UI Component layer vs. React Hooks layer (default)).
 P0.10 At the very end of a task (after all steps and cleanup), you MUST mark the task as [COMPLETED] in `tasks.md`, run all tests one last time, run the linter and fix any errors, start the app and verify no runtime errors, and then perform a final cleanup commit and push before calling `submit`.
 
 G1.10 When asked to add a new feature, you must always add it at the higher level in `PROJECT_SPEC.md` first, then break that out into smaller tasks second in `tasks.md` using the `PROJECT_SPEC` feature number.
@@ -83,7 +84,7 @@ P0.15.2 To ensure compliance with P0.15 and P0.15.1, you must perform a line-cou
 T1.1 Work in RED → GREEN → REFACTOR cycles.
 T1.2 In RED, write exactly one failing test that defines a single small behavior increment. Do not write multiple tests in a single RED step.
 T1.3 Default test level rules:
-T1.3.1 For React work, start by creating the component layer code (the "View") without tests. This is usually Step 1 of the PLAN, but it is NOT part of the TDD workflow (no RED phase). TDD (RED → GREEN → REFACTOR) MUST start at the hook layer (Step 2) once the component code is present. You MUST NEVER write UI component tests or integration tests (e.g., tests that use `fireEvent`, `render` of components to verify behavior) unless explicitly instructed by the user. Even in autonomous mode, you must ask for permission before creating UI tests that live above React hooks. Component code must not contain logic; logic belongs in hooks and lower layers.
+T1.3.1 For React work, the starting layer for the Outside-In TDD flow depends on the choice made in P0.0. If the user chose to start at the React Component layer, the TDD workflow (RED → GREEN → REFACTOR) begins by writing UI component tests. If the user chose to start at the React Hooks layer (default), the component layer (the "View") is created first as a non-TDD scaffold (Step 1 of the PLAN), and TDD begins at the hook layer (Step 2). You MUST NEVER write UI component tests or integration tests (e.g., tests that use `fireEvent`, `render` of components to verify behavior) if the Hook-layer was chosen, unless explicitly instructed otherwise.
 T1.3.2 For non-React work, write tests at the behavioral/business layer level (headless/functional) and avoid end-to-end/system tests unless explicitly instructed.
 T1.3.3 You MUST NEVER write tests at the Controller layer. Controllers are delivery-mechanism adapters and must remain pass-through only. Business behavior must be defined and tested at the Command (Use Case) or Domain layer.
 T1.3.4 Disallowed by default (unless explicitly instructed or for service data layer): browser/UI integration tests, real network calls, end-to-end tests, full-stack HTTP tests.
@@ -101,7 +102,7 @@ T1.10 When fixing a defect or implementing a feature with a clear external contr
 T1.11 When tests fail, fix implementation first, not the test, unless the test clearly contradicts the spec.
 T1.12 Always follow an outside-in TDD approach. Start implementation at the highest permitted layer (e.g., UI components or Hooks for frontend, Controllers or API routes for backend) and work your way down to the lower-level collaborators (repositories, commands, domain logic). When a dependency is needed but has not been implemented yet, provide a simple custom stub (a "fake") for that dependency to satisfy the current test and allow the current step to go GREEN.
 T1.13 The backend / service code should also be implemented outside-in. This means starting from the entry point (Controller/App route) and working down through the use cases to the data layer, ensuring each layer is defined by a test before its implementation and dependencies are built.
-T1.14 Strict Outside-In Ordering: When presenting a PLAN or executing tasks, you MUST always start from the highest level of the delivery mechanism (UI for frontend, Controller for backend) and work your way down. You must never start from the domain or data layer and work up. The PLAN must explicitly list steps in this top-down order.
+T1.14 Strict Outside-In Ordering: When presenting a PLAN or executing tasks, you MUST always start from the highest level of the delivery mechanism (Component layer for UI, Controller for backend) and work your way down, depending on the choice made in P0.0 for React work. You must never start from the domain or data layer and work up. The PLAN must explicitly list steps in this top-down order.
 T1.15 You MUST NOT use `@jest-environment` comments to set the test environment in individual test files. Instead, ensure the global `jest.config.js` is configured with `projects` to automatically apply the correct environment (e.g., `jsdom` for `src/client` and `node` for `src/service`) based on the file path.
 T1.16 Integration test timeouts MUST NOT exceed 30 seconds in the codebase. The overall test timeout global threshold MUST be 30 seconds. If this needs to be increased, you MUST ask the user for permission first.
 T1.17 Repeated code in tests, such as `render(<App />);`, MUST be DRY'd up by moving it to a `beforeEach` block at the appropriate scope.
