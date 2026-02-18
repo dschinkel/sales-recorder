@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   SafeAreaView,
   Text,
@@ -7,6 +7,7 @@ import {
   View,
   TextInput,
 } from 'react-native';
+import {useAnswers} from './src/hooks/useAnswers';
 
 const QUESTIONS: string[] = [
   'Company Name',
@@ -28,18 +29,12 @@ const QUESTIONS: string[] = [
 ];
 
 const App = () => {
-  const [answers, setAnswers] = useState<{[key: string]: string}>({});
-
-  const handleAnswerChange = (question: string, text: string) => {
-    setAnswers(prev => ({
-      ...prev,
-      [question]: text,
-    }));
-  };
-
-  const unansweredCount = QUESTIONS.length - Object.values(answers).filter(a => a.trim() !== '').length;
-
-  const answeredQuestions = QUESTIONS.filter(q => answers[q] && answers[q].trim() !== '');
+  const {
+    answers,
+    handleAnswerChange,
+    answeredQuestions,
+    unansweredCount,
+  } = useAnswers(QUESTIONS);
 
   return (
     <SafeAreaView style={styles.container}>

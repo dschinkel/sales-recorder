@@ -30,9 +30,8 @@ it('lists sales questions', () => {
 });
 
 it('shows answer for a specific question', () => {
-  const {getByPlaceholderText, getByDisplayValue} = render(<App />);
-  const inputs = getByPlaceholderText('Type answer here...');
-  const firstInput = Array.isArray(inputs) ? inputs[0] : inputs;
+  const {getAllByPlaceholderText, getByDisplayValue} = render(<App />);
+  const firstInput = getAllByPlaceholderText('Type answer here...')[0];
 
   fireEvent.changeText(firstInput, 'Acme Corp');
 
@@ -42,27 +41,24 @@ it('shows answer for a specific question', () => {
 it('shows count of unanswered questions and updates when answered', () => {
   const {getByText, getAllByPlaceholderText} = render(<App />);
 
-  // Initially, all questions are unanswered
   expect(getByText('Unanswered: 16')).toBeTruthy();
 
-  // Answer the first question
   const firstInput = getAllByPlaceholderText('Type answer here...')[0];
   fireEvent.changeText(firstInput, 'Acme');
 
-  // One fewer unanswered question now
   expect(getByText('Unanswered: 15')).toBeTruthy();
 });
 
 it('shows formatted report with all answers in real-time', () => {
-  const {getByText, getAllByPlaceholderText, queryByText} = render(<App />);
+  const {getByText, getAllByPlaceholderText, getAllByText} = render(<App />);
 
   expect(getByText('Live Summary Report')).toBeTruthy();
 
   const firstInput = getAllByPlaceholderText('Type answer here...')[0];
   fireEvent.changeText(firstInput, 'Acme Corp');
 
-  expect(getByText('Company Name')).toBeTruthy();
+  expect(getAllByText('Company Name').length).toBe(2);
   expect(getByText('Acme Corp')).toBeTruthy();
 
-  expect(queryByText('Concerns')).toBeNull();
+  expect(getAllByText('Concerns').length).toBe(1);
 });
