@@ -63,6 +63,15 @@ Select or the type the file name. e.g. `PROJECT_SPEC.md`.
 # Starting the iOS Emulator
 ## Prerequisites
 
+Clone the repo.  You can just ask the llm to do that for you.
+If manual here's the easiest way. Using the Github CLI makes it super easy for you these days
+`brew install gh`
+Choose SSH
+Generate new SSH key (if you don’t have one)
+Upload key to GitHub
+Then clone `gh repo clone <owner>/<repo> -- --ssh`
+
+
 Before you begin, ensure you have the following installed on your local machine:
 
 - **Node.js** (>=18)
