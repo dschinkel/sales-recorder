@@ -17,10 +17,16 @@ export const useAnswers = (questions: string[]) => {
 
   const unansweredCount = questions.length - answeredQuestions.length;
 
+  const isQuestionAnswered = useMemo(() =>
+    (question: string) => Boolean(answers[question] && answers[question].trim() !== ''),
+    [answers]
+  );
+
   return {
     answers,
     handleAnswerChange,
     answeredQuestions,
     unansweredCount,
+    isQuestionAnswered,
   };
 };

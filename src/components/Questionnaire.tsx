@@ -22,6 +22,13 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
+    borderLeftWidth: 4,
+    borderLeftColor: 'transparent',
+    paddingLeft: 10,
+  },
+  answeredItem: {
+    borderLeftColor: '#28a745',
+    backgroundColor: '#f8fff8',
   },
   questionText: {
     fontSize: 16,
@@ -63,6 +70,7 @@ interface QuestionnaireProps {
   answers: {[key: string]: string};
   handleAnswerChange: (question: string, text: string) => void;
   unansweredCount: number;
+  isQuestionAnswered: (question: string) => boolean;
 }
 
 export const Questionnaire = ({
@@ -70,6 +78,7 @@ export const Questionnaire = ({
                                 answers,
                                 handleAnswerChange,
                                 unansweredCount,
+                                isQuestionAnswered,
                               }: QuestionnaireProps) => {
   return (
     <FlatList
@@ -86,6 +95,7 @@ export const Questionnaire = ({
           question={item}
           value={answers[item] || ''}
           onChangeText={text => handleAnswerChange(item, text)}
+          isAnswered={isQuestionAnswered(item)}
         />
       )}
       contentContainerStyle={styles.list}
@@ -110,10 +120,11 @@ interface QuestionProps {
   question: string;
   value: string;
   onChangeText: (text: string) => void;
+  isAnswered: boolean;
 }
 
-const Question = ({question, value, onChangeText}: QuestionProps) => (
-  <View style={styles.questionItem}>
+const Question = ({question, value, onChangeText, isAnswered}: QuestionProps) => (
+  <View style={[styles.questionItem, isAnswered && styles.answeredItem]}>
     <Text style={styles.questionText}>{question}</Text>
     <TextInput
       style={styles.input}

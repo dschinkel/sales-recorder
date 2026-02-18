@@ -34,6 +34,7 @@ ACK: TASKS_READ
     - [x] **F.1.0.14** Procurement, Legal, Security? Gating step?
     - [x] **F.1.0.15** Risk to Forecast Date?
 - [x] **F.1.1** Answer those questions
+    - [x] **F.1.1.0** Highlight questions answered in green
 - [x] **F.1.2** List questions not answered yet
 - [x] **F.1.3** Formatted report with Answers
 - [x] **F.10** Build and Deploy script

@@ -59,7 +59,9 @@ Report generated on convesation
         F.1.0.14 Procurement, Legal, Security? Gating step?
         F.1.0.15 Risk to Forecast Date?
     F.1.1 [COMPLETED] Answer those questions
+        F.1.1.0 [COMPLETED] Highlight questions answered in green
     F.1.2 [COMPLETED] List questions not answered yet
+        F.1.2 Highlight questions not answered in red
     F.1.3 [IN PROGRESS] Formatted report with Answers
         F.1.3.0 Topic Answers
         F.1.3.1 What is their objective Answers

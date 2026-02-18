@@ -34,6 +34,7 @@ const App = () => {
     handleAnswerChange,
     answeredQuestions,
     unansweredCount,
+    isQuestionAnswered,
   } = useAnswers(QUESTIONS);
 
   return (
@@ -47,6 +48,7 @@ const App = () => {
         answers={answers}
         handleAnswerChange={handleAnswerChange}
         unansweredCount={unansweredCount}
+        isQuestionAnswered={isQuestionAnswered}
       />
 
       <EmptyReportPrompt questionsCount={answeredQuestions.length} />

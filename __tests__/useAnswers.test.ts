@@ -33,4 +33,16 @@ describe('Answers', () => {
     expect(result.current.unansweredCount).toBe(2);
     expect(result.current.answeredQuestions).toEqual([]);
   });
+
+  it('identifies if a specific question is answered', () => {
+    const {result} = renderHook(() => useAnswers(questions));
+
+    expect(result.current.isQuestionAnswered('Q1')).toBe(false);
+
+    act(() => {
+      result.current.handleAnswerChange('Q1', 'Answer');
+    });
+
+    expect(result.current.isQuestionAnswered('Q1')).toBe(true);
+  });
 });
