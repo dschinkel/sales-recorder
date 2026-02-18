@@ -31,12 +31,7 @@ interface ReportProps {
 
 export const Report = ({questions, answers}: ReportProps) => {
   if (questions.length === 0) {
-    return (
-      <View style={styles.reportContainer}>
-        <Text style={styles.reportTitle}>Live Summary Report</Text>
-        <Text style={styles.noDataText}>Start typing to see the report...</Text>
-      </View>
-    );
+    return null;
   }
 
   return (
@@ -45,6 +40,19 @@ export const Report = ({questions, answers}: ReportProps) => {
       {questions.map((question, index) => (
         <QuestionAnswer key={index} question={question} answers={answers} />
       ))}
+    </View>
+  );
+};
+
+export const EmptyReportPrompt = ({questionsCount}: {questionsCount: number}) => {
+  if (questionsCount > 0) {
+    return null;
+  }
+
+  return (
+    <View style={styles.reportContainer}>
+      <Text style={styles.reportTitle}>Live Summary Report</Text>
+      <Text style={styles.noDataText}>Start typing to see the report...</Text>
     </View>
   );
 };

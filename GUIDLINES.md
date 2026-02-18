@@ -181,7 +181,14 @@ R1.3 Hooks may orchestrate IO by calling injected repositories, but must not emb
 R1.4 No useEffect inside React components. useEffect may exist only inside hooks.
 R1.5 Avoid spaghetti JSX. Extract mapping/conditions into small, well-named domain components.
 R1.6 Component naming must be domain-oriented and must not include unnecessary technical suffixes (Component, View, Module, Modal, Input). Use domain ideas instead.
-R1.7 Use guard clauses by extracting conditional rendering into a domain component that returns null when not applicable.
+R1.7 Use guard clauses by extracting conditional rendering into a domain component that returns null when not applicable. 
+Example (Good):
+```typescript
+const Report = ({questions}: ReportProps) => {
+  if (questions.length === 0) return null;
+  return <View>...</View>;
+}
+```
 R1.8 Tests: default to hook-layer tests (React Hook Testing Library) and then unit tests for lower-level pure functions.
 
 ---

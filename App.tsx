@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import {useAnswers} from './src/hooks/useAnswers';
 import {Questionnaire, QUESTIONS} from './src/components/Questionnaire.tsx';
-import {Report} from './src/components/Report';
+import {Report, EmptyReportPrompt} from './src/components/Report';
 
 const styles = StyleSheet.create({
   container: {
@@ -49,6 +49,7 @@ const App = () => {
         unansweredCount={unansweredCount}
       />
 
+      <EmptyReportPrompt questionsCount={answeredQuestions.length} />
       <Report questions={answeredQuestions} answers={answers}/>
     </View>
   );
