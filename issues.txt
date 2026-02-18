@@ -1,0 +1,4 @@
+Lately the llm is overwriting things
+    - I told it to add a new feature in project_spec.md and it renamed an existing one instead and so it removed that existing spec
+    - It has done this several times, something it has never done in the past projects, so be aware of that
+

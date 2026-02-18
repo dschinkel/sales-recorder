@@ -93,3 +93,6 @@ Report generated on convesation
 
 ## F.9.Email the transcript
     9.0 Provide a way to email the transcript.
+
+## F.10. Build and Deploy script
+    10.0 Create a script to automate the build, install, and launch process for the iOS simulator in Release mode.
