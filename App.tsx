@@ -9,71 +9,6 @@ import {
 } from 'react-native';
 import {useAnswers} from './src/hooks/useAnswers';
 
-const QUESTIONS: string[] = [
-  'Company Name',
-  'What was Topic of your conversation with the customer',
-  "What is the customer's objectives",
-  'What is the Timeline for the project',
-  'Who are the Decision makers for the project',
-  'Estimated Deal Size',
-  'Decision Makers’ Goals, Likes, and Interests?',
-  'Concerns',
-  'Competition',
-  'Budget',
-  'Marketing Support Expectations',
-  'Confidence Level',
-  'Strategy',
-  'What Does Success Look Like for Them?',
-  'Procurement, Legal, Security? Gating step?',
-  'Risk to Forecast Date?',
-];
-
-const App = () => {
-  const {
-    answers,
-    handleAnswerChange,
-    answeredQuestions,
-    unansweredCount,
-  } = useAnswers(QUESTIONS);
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.versionLabel}>Version: F.1.3</Text>
-        <Text style={styles.title}>Sales Recorder</Text>
-        <Text style={styles.versionLabel}>Unanswered: {unansweredCount}</Text>
-      </View>
-      <FlatList
-        data={QUESTIONS}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({item}) => (
-          <QuestionItem
-            question={item}
-            value={answers[item] || ''}
-            onChangeText={text => handleAnswerChange(item, text)}
-          />
-        )}
-        contentContainerStyle={styles.list}
-        initialNumToRender={QUESTIONS.length}
-        ListFooterComponent={
-          <View style={styles.reportContainer}>
-            <Text style={styles.reportTitle}>Live Summary Report</Text>
-            {answeredQuestions.map((question, index) => (
-              <View key={index} style={styles.reportItem}>
-                <Text style={styles.reportQuestion}>{question}</Text>
-                <Text style={styles.reportAnswer}>{answers[question]}</Text>
-              </View>
-            ))}
-            {answeredQuestions.length === 0 && (
-              <Text style={styles.noDataText}>Start typing to see the report...</Text>
-            )}
-          </View>
-        }
-      />
-    </SafeAreaView>
-  );
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -157,7 +92,86 @@ const styles = StyleSheet.create({
   },
 });
 
-const QuestionItem = ({
+const QUESTIONS: string[] = [
+  'Company Name',
+  'What was Topic of your conversation with the customer',
+  "What is the customer's objectives",
+  'What is the Timeline for the project',
+  'Who are the Decision makers for the project',
+  'Estimated Deal Size',
+  'Decision Makers’ Goals, Likes, and Interests?',
+  'Concerns',
+  'Competition',
+  'Budget',
+  'Marketing Support Expectations',
+  'Confidence Level',
+  'Strategy',
+  'What Does Success Look Like for Them?',
+  'Procurement, Legal, Security? Gating step?',
+  'Risk to Forecast Date?',
+];
+function Prompt(props: { strings: string[] }) {
+  return <>
+    {props.strings.length === 0 && (
+      <Text style={styles.noDataText}>Start typing to see the report...</Text>
+    )}
+  </>;
+
+}
+function QuestionsAnswered(props: { strings: string[], callbackfn: (question, index) => React.JSX.Element }) {
+  return <>{props.strings.map(props.callbackfn)}</>;
+
+}
+function QuestionAnswer(props: { question: any, answers: { [p: string]: string } }) {
+  return <View style={styles.reportItem}>
+    <Text style={styles.reportQuestion}>{props.question}</Text>
+    <Text style={styles.reportAnswer}>{props.answers[props.question]}</Text>
+  </View>;
+
+}
+const App = () => {
+
+  const {
+    answers,
+    handleAnswerChange,
+    answeredQuestions,
+    unansweredCount,
+  } = useAnswers(QUESTIONS);
+  return (
+    <>
+      <View style={styles.header}>
+        <Text style={styles.versionLabel}>Version: F.1.3</Text>
+        <Text style={styles.title}>Sales Recorder</Text>
+        <Text style={styles.versionLabel}>Unanswered: {unansweredCount}</Text>
+      </View>
+      <FlatList
+        data={QUESTIONS}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({item}) => (
+          <Question
+            question={item}
+            value={answers[item] || ''}
+            onChangeText={text => handleAnswerChange(item, text)}
+          />
+        )}
+        contentContainerStyle={styles.list}
+        initialNumToRender={QUESTIONS.length}
+        ListFooterComponent={
+          <View style={styles.reportContainer}>
+            <Text style={styles.reportTitle}>Live Summary Report</Text>
+            <QuestionsAnswered strings={answeredQuestions} callbackfn={(question, index) => (
+              <QuestionAnswer key={index} question={question} answers={answers}/>
+            )}/>
+            <Prompt strings={answeredQuestions}/>
+          </View>
+        }
+      />
+    </>
+  );
+
+};
+
+const Question = ({
   question,
   value,
   onChangeText,
