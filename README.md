@@ -2,12 +2,15 @@
 
 ## How to initialize this project 
 [COMPLETED]
+
+This is only done ONCE.  You do not need to do this once the project has this boilerplate and pushed to github.
+
 1. Clone down the `react-native-boilerplate` repo.  Clone it to the same level as your project folder.
 2. make sure your init.sh (or `init.sh`) is marked as executable in your boilerplate repo (chmod +x init.sh). This ensures the AI agent doesn't get hung up on a "Permission Denied" error when it tries to run the bootstrap.
-2. Start a new folder for your new project: `mkdir my-new-tool && cd my-new-tool`
-3. Open Junie/Codex: Say, "Start working on the Etsy SEO parser." (or whatever you named your project)
-4. The Agent Acts: * The agent reads AGENTS.md and sees the "Standing Order."
-5. It notices the folder is empty and runs `../react-native-boilerplate/init.sh`.
+3. Start a new folder for your new project: `mkdir my-new-tool && cd my-new-tool`
+4. Open Junie/Codex: Say, "Start working on the Etsy SEO parser." (or whatever you named your project)
+5. The Agent Acts: * The agent reads AGENTS.md and sees the "Standing Order."
+6. It notices the folder is empty and runs `../react-native-boilerplate/init.sh`.
 
 #### How your app is bootstrapped automatically
 - Junie (in Brave mode) or Codex or whatever tool you use will read `AGENTS.md`, see that it's a new project without the Tailwind config, and say: "I noticed the project isn't initialized. I'm running the sync script first."
