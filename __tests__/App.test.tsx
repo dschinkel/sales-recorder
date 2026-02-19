@@ -1,10 +1,10 @@
 import 'react-native';
 import React from 'react';
+import { render, fireEvent } from '@testing-library/react-native';
 import App from '../App';
-import {render, fireEvent} from '@testing-library/react-native';
 
 it('lists sales questions', () => {
-  const {getByText} = render(<App />);
+  const { getByText } = render(<App />);
   const expectedQuestions = [
     'Company Name',
     'What was Topic of your conversation with the customer',
@@ -24,13 +24,13 @@ it('lists sales questions', () => {
     'Risk to Forecast Date?',
   ];
 
-  expectedQuestions.forEach(question => {
+  expectedQuestions.forEach((question) => {
     expect(getByText(question)).toBeTruthy();
   });
 });
 
 it('shows answer for a specific question', () => {
-  const {getAllByPlaceholderText, getByDisplayValue} = render(<App />);
+  const { getAllByPlaceholderText, getByDisplayValue } = render(<App />);
   const firstInput = getAllByPlaceholderText('Type answer here...')[0];
 
   fireEvent.changeText(firstInput, 'Acme Corp');
@@ -39,7 +39,7 @@ it('shows answer for a specific question', () => {
 });
 
 it('shows count of unanswered questions and updates when answered', () => {
-  const {getByText, getAllByPlaceholderText} = render(<App />);
+  const { getByText, getAllByPlaceholderText } = render(<App />);
 
   expect(getByText('Unanswered: 16')).toBeTruthy();
 
@@ -50,7 +50,7 @@ it('shows count of unanswered questions and updates when answered', () => {
 });
 
 it('shows formatted report with all answers in real-time', () => {
-  const {getByText, getAllByPlaceholderText, getAllByText} = render(<App />);
+  const { getByText, getAllByPlaceholderText, getAllByText } = render(<App />);
 
   expect(getByText('Live Summary Report')).toBeTruthy();
 

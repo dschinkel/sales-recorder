@@ -23,28 +23,14 @@
   "frameworks": "UIKit",
   "dependencies": {
     "DoubleConversion": [],
-    "fmt": [
-      "9.1.0"
-    ],
-    "RCT-Folly": [
-      "2024.01.01.00"
-    ],
-    "RCTTypeSafety": [
-      "0.76.5"
-    ],
-    "React-Core/CoreModulesHeaders": [
-      "0.76.5"
-    ],
-    "React-RCTImage": [
-      "0.76.5"
-    ],
-    "React-jsi": [
-      "0.76.5"
-    ],
+    "fmt": ["9.1.0"],
+    "RCT-Folly": ["2024.01.01.00"],
+    "RCTTypeSafety": ["0.76.5"],
+    "React-Core/CoreModulesHeaders": ["0.76.5"],
+    "React-RCTImage": ["0.76.5"],
+    "React-jsi": ["0.76.5"],
     "React-RCTBlob": [],
-    "SocketRocket": [
-      "0.7.1"
-    ],
+    "SocketRocket": ["0.7.1"],
     "React-jsinspector": [],
     "ReactCodegen": [],
     "ReactCommon": [],

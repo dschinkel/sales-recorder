@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {QuestionAnswer} from './QuestionAnswer';
+import { View, Text, StyleSheet } from 'react-native';
+import { QuestionAnswer } from './QuestionAnswer';
 
 const styles = StyleSheet.create({
   reportContainer: {
@@ -26,10 +26,10 @@ const styles = StyleSheet.create({
 
 interface ReportProps {
   questions: string[];
-  answers: {[key: string]: string};
+  answers: { [key: string]: string };
 }
 
-export const Report = ({questions, answers}: ReportProps) => {
+export function Report({ questions, answers }: ReportProps) {
   if (questions.length === 0) {
     return null;
   }
@@ -42,9 +42,9 @@ export const Report = ({questions, answers}: ReportProps) => {
       ))}
     </View>
   );
-};
+}
 
-export const EmptyReportPrompt = ({questionsCount}: {questionsCount: number}) => {
+export function EmptyReportPrompt({ questionsCount }: { questionsCount: number }) {
   if (questionsCount > 0) {
     return null;
   }
@@ -55,4 +55,4 @@ export const EmptyReportPrompt = ({questionsCount}: {questionsCount: number}) =>
       <Text style={styles.noDataText}>Start typing to see the report...</Text>
     </View>
   );
-};
+}

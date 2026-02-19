@@ -3,15 +3,17 @@ At the start of any task workflow output exactly:
 ACK:AGENTS_READ
 
 ## Core Project Documentation
+
 Treat the following files as the authoritative sources for project state and behavior:
 
 - **Source of Truth for the project:** `@AGENTS.md`
   - This should always be read first before any other documentation.
-  
 - **Source of Truth for Behavior:** `@PROJECT_SPEC.md`
+
   - Consult this first to understand feature requirements, technical stack, and design goals.
 
 - **Behavioral & Style Manual:** `@GUIDELINES.md`
+
   - **Mandatory:** Follow all coding standards, architectural patterns, and naming conventions defined here.
   - Check this file before refactoring or implementing new logic to ensure compliance with project norms.
 
@@ -23,6 +25,7 @@ Treat the following files as the authoritative sources for project state and beh
 ---
 
 ## Project Setup & Bootstrapping
+
 Before performing any feature work or refactoring, ensure the project environment is initialized:
 
 - **Standing Order:** If the project root lacks standard scaffolding (e.g., missing `src/` or `tailwind.config.js`):
@@ -34,6 +37,7 @@ Before performing any feature work or refactoring, ensure the project environmen
 ---
 
 ## Git & Remote Automation
+
 - **Repository Setup:** If the local repo is not linked to GitHub, create a new private remote repository named after the current directory and perform the initial push.
 - **Yarn First:** Always use `yarn` for managing packages. If `package.json` is modified, run `yarn install` immediately.
 - **Auto-Sync:** After completing any task in `tasks.md`, verify the project is in a clean state and push the current branch to GitHub.
@@ -41,6 +45,7 @@ Before performing any feature work or refactoring, ensure the project environmen
 ---
 
 ## Agent Behavioral Rules (Self-Review)
+
 Before finalizing any task, you must perform a self-audit against the following checklist:
 
 1. **Guideline Compliance:** Does the code strictly follow the patterns in `GUIDELINES.md`? (e.g., naming, file structure, error handling).
@@ -52,6 +57,7 @@ Before finalizing any task, you must perform a self-audit against the following 
 ---
 
 ## Continuous Integration (Brave Mode Only)
+
 - **Auto-Commit:** After completing any behavior that modifies files, perform a local commit with a descriptive message referencing the Task ID.
 - **Auto-Push:** If the session is successful and basic checks pass, push the current branch to the remote origin.
 - **Branding:** Ensure the generated README.md contains the "Sales App" project header if it is a new repository.

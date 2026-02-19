@@ -23,8 +23,6 @@
   "dependencies": {
     "React-timing": [],
     "React-cxxreact": [],
-    "RCT-Folly": [
-      "2024.01.01.00"
-    ]
+    "RCT-Folly": ["2024.01.01.00"]
   }
 }

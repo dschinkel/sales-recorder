@@ -1,12 +1,8 @@
 import React from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-} from 'react-native';
-import {useAnswers} from './src/hooks/useAnswers';
-import {Questionnaire, QUESTIONS} from './src/components/Questionnaire.tsx';
-import {Report, EmptyReportPrompt} from './src/components/Report';
+import { Text, StyleSheet, View } from 'react-native';
+import { useAnswers } from './src/hooks/useAnswers';
+import { Questionnaire, QUESTIONS } from './src/components/Questionnaire';
+import { Report, EmptyReportPrompt } from './src/components/Report';
 
 const styles = StyleSheet.create({
   container: {
@@ -28,14 +24,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const App = () => {
-  const {
-    answers,
-    handleAnswerChange,
-    answeredQuestions,
-    unansweredCount,
-    isQuestionAnswered,
-  } = useAnswers(QUESTIONS);
+function App() {
+  const { answers, handleAnswerChange, answeredQuestions, unansweredCount, isQuestionAnswered } =
+    useAnswers(QUESTIONS);
 
   return (
     <View style={styles.container}>
@@ -52,9 +43,9 @@ const App = () => {
       />
 
       <EmptyReportPrompt questionsCount={answeredQuestions.length} />
-      <Report questions={answeredQuestions} answers={answers}/>
+      <Report questions={answeredQuestions} answers={answers} />
     </View>
   );
-};
+}
 
 export default App;

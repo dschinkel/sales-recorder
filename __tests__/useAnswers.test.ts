@@ -1,18 +1,16 @@
-import {renderHook, act} from '@testing-library/react-native';
-import {useAnswers} from '../src/hooks/useAnswers';
+import { renderHook, act } from '@testing-library/react-native';
+import { useAnswers } from '../src/hooks/useAnswers';
 
 const questions = ['Q1', 'Q2'];
 
 describe('Answers', () => {
-
-
   it('shows empty answers', () => {
-    const {result} = renderHook(() => useAnswers(questions));
+    const { result } = renderHook(() => useAnswers(questions));
     expect(result.current.answers).toEqual({});
   });
 
   it('updates answer count', () => {
-    const {result} = renderHook(() => useAnswers(questions));
+    const { result } = renderHook(() => useAnswers(questions));
 
     act(() => {
       result.current.handleAnswerChange('Q1', 'Answer 1');
@@ -24,7 +22,7 @@ describe('Answers', () => {
   });
 
   it('does not allow empty answers', () => {
-    const {result} = renderHook(() => useAnswers(questions));
+    const { result } = renderHook(() => useAnswers(questions));
 
     act(() => {
       result.current.handleAnswerChange('Q1', '  ');
@@ -35,7 +33,7 @@ describe('Answers', () => {
   });
 
   it('identifies if a specific question is answered', () => {
-    const {result} = renderHook(() => useAnswers(questions));
+    const { result } = renderHook(() => useAnswers(questions));
 
     expect(result.current.isQuestionAnswered('Q1')).toBe(false);
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, StyleSheet, View, Text, TextInput} from 'react-native';
+import { FlatList, StyleSheet, View, Text, TextInput } from 'react-native';
 
 const styles = StyleSheet.create({
   list: {
@@ -67,34 +67,34 @@ export const QUESTIONS: string[] = [
 
 interface QuestionnaireProps {
   questions: string[];
-  answers: {[key: string]: string};
+  answers: { [key: string]: string };
   handleAnswerChange: (question: string, text: string) => void;
   unansweredCount: number;
   isQuestionAnswered: (question: string) => boolean;
 }
 
-export const Questionnaire = ({
-                                questions,
-                                answers,
-                                handleAnswerChange,
-                                unansweredCount,
-                                isQuestionAnswered,
-                              }: QuestionnaireProps) => {
+export function Questionnaire({
+  questions,
+  answers,
+  handleAnswerChange,
+  unansweredCount,
+  isQuestionAnswered,
+}: QuestionnaireProps) {
   return (
     <FlatList
       data={questions}
       keyExtractor={(item, index) => index.toString()}
       ListHeaderComponent={
         <View style={styles.header}>
-          <Version/>
-          <UnansweredCount listHeaderComponent={unansweredCount}/>
+          <Version />
+          <UnansweredCount listHeaderComponent={unansweredCount} />
         </View>
       }
-      renderItem={({item}) => (
+      renderItem={({ item }) => (
         <Question
           question={item}
           value={answers[item] || ''}
-          onChangeText={text => handleAnswerChange(item, text)}
+          onChangeText={(text) => handleAnswerChange(item, text)}
           isAnswered={isQuestionAnswered(item)}
         />
       )}
@@ -102,18 +102,22 @@ export const Questionnaire = ({
       initialNumToRender={questions.length}
     />
   );
-};
+}
 
 function Version() {
-  return <Text style={styles.versionLabel}>
-    Version: <Text style={styles.versionValue}>F.1.8</Text>
-  </Text>;
+  return (
+    <Text style={styles.versionLabel}>
+      Version: <Text style={styles.versionValue}>F.1.8</Text>
+    </Text>
+  );
 }
 
 function UnansweredCount(props: { listHeaderComponent: number }) {
-  return <Text style={styles.versionLabel}>
-    Unanswered: <Text style={styles.versionValue}>{props.listHeaderComponent}</Text>
-  </Text>;
+  return (
+    <Text style={styles.versionLabel}>
+      Unanswered: <Text style={styles.versionValue}>{props.listHeaderComponent}</Text>
+    </Text>
+  );
 }
 
 interface QuestionProps {
@@ -123,15 +127,17 @@ interface QuestionProps {
   isAnswered: boolean;
 }
 
-const Question = ({question, value, onChangeText, isAnswered}: QuestionProps) => (
-  <View style={[styles.questionItem, isAnswered && styles.answeredItem]}>
-    <Text style={styles.questionText}>{question}</Text>
-    <TextInput
-      style={styles.input}
-      value={value}
-      onChangeText={onChangeText}
-      placeholder="Type answer here..."
-      multiline
-    />
-  </View>
-);
+function Question({ question, value, onChangeText, isAnswered }: QuestionProps) {
+  return (
+    <View style={[styles.questionItem, isAnswered && styles.answeredItem]}>
+      <Text style={styles.questionText}>{question}</Text>
+      <TextInput
+        style={styles.input}
+        value={value}
+        onChangeText={onChangeText}
+        placeholder="Type answer here..."
+        multiline
+      />
+    </View>
+  );
+}

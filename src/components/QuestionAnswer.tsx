@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   reportItem: {
@@ -26,12 +26,14 @@ const styles = StyleSheet.create({
 
 interface QuestionAnswerProps {
   question: string;
-  answers: {[key: string]: string};
+  answers: { [key: string]: string };
 }
 
-export const QuestionAnswer = ({question, answers}: QuestionAnswerProps) => (
-  <View style={styles.reportItem}>
-    <Text style={styles.reportQuestion}>{question}</Text>
-    <Text style={styles.reportAnswer}>{answers[question]}</Text>
-  </View>
-);
+export function QuestionAnswer({ question, answers }: QuestionAnswerProps) {
+  return (
+    <View style={styles.reportItem}>
+      <Text style={styles.reportQuestion}>{question}</Text>
+      <Text style={styles.reportAnswer}>{answers[question]}</Text>
+    </View>
+  );
+}

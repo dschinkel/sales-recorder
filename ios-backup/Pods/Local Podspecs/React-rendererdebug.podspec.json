@@ -22,13 +22,9 @@
     "DEFINES_MODULE": "YES"
   },
   "dependencies": {
-    "RCT-Folly": [
-      "2024.01.01.00"
-    ],
+    "RCT-Folly": ["2024.01.01.00"],
     "DoubleConversion": [],
-    "fmt": [
-      "9.1.0"
-    ],
+    "fmt": ["9.1.0"],
     "React-debug": []
   }
 }

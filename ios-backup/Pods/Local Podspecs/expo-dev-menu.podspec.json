@@ -42,9 +42,7 @@
   "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_CFG_NO_COROUTINES=1 -Wno-comma -Wno-shorten-64-to-32 -DREACT_NATIVE_TARGET_VERSION=76 -DUSE_HERMES",
   "dependencies": {
     "React-Core": [],
-    "RCT-Folly": [
-      "2024.01.01.00"
-    ],
+    "RCT-Folly": ["2024.01.01.00"],
     "glog": [],
     "React-RCTFabric": [],
     "ReactCodegen": [],
@@ -66,14 +64,8 @@
   },
   "source_files": "ios/**/*.{h,m,mm,swift}",
   "preserve_paths": "ios/**/*.{h,m,mm,swift}",
-  "exclude_files": [
-    "ios/*Tests/**/*",
-    "ios/ReactNativeCompatibles/**/*"
-  ],
-  "default_subspecs": [
-    "Main",
-    "ReactNativeCompatibles"
-  ],
+  "exclude_files": ["ios/*Tests/**/*", "ios/ReactNativeCompatibles/**/*"],
+  "default_subspecs": ["Main", "ReactNativeCompatibles"],
   "testspecs": [
     {
       "name": "Tests",

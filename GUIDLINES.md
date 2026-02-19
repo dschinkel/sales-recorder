@@ -3,10 +3,11 @@
 Scope: Applies to all coding tasks executed by Junie or any AI agent in this repo.
 
 Precedence (highest wins):
-1) The user’s instructions in the current chat
-2) This document (GUIDELINES.md)
-3) Existing codebase conventions
-4) General best practices
+
+1. The user’s instructions in the current chat
+2. This document (GUIDELINES.md)
+3. Existing codebase conventions
+4. General best practices
 
 Agent acknowledgement:
 At the start of any task workflow (the message where you present the PLAN), AND at the start of every response to a user prompt during a task, output exactly:
@@ -19,6 +20,7 @@ Do NOT output ACK when answering questions or doing non-task discussion (i.e., w
 ## P0. Agent Protocol (non-negotiable)
 
 P0.0 When the user says `work on task <number>`, ask these questions BEFORE producing any PLAN:
+
 1. "Do you want the PLAN to include a full TDD workflow (RED → GREEN → REFACTOR + commit prompts), or a non-TDD execution plan?"
 2. "If TDD is chosen, do you want to include UI component tests (starting TDD at the React Component layer), or start TDD at the React Hooks layer (default)?"
 
@@ -59,14 +61,19 @@ P0.13 When asked to add a new feature, you must always add it at the higher leve
 P0.13.1 Ensure that new behaviors (adding new functionality, UI elements, or logic) are treated as **Features** (FR.x) and not as "Fixes". A "Fix" (PR.x) is strictly for correcting existing behavior that is broken or not meeting the original spec. If a "Fix" actually introduces new behavior, it must be promoted to a Feature in `PROJECT_SPEC.md` and `tasks.md`.
 P0.13.2 Every task created in `tasks.md` (whether by the user or the agent) MUST have as its first acceptance criterion: `- Re-read GUIDELINES.MD AND PROJECT_SPEC.MD`.
 P0.14 If asked for an out of bounds fix, relate it to the current task and append the information to `tasks.md` using the following format:
+
 ```markdown
 ## PR.<feature number> Fix [COMPLETED]
+
 ### <Description of the fix>
+
 The Fix:
+
 - [COMPLETED] <Subtask 1>
 - [COMPLETED] <Subtask 2>
-...
+  ...
 ```
+
 Example: `## PR.12 Fix [COMPLETED]` for a fix related to Feature FR.12.
 
 P0.15 If a task in `tasks.md` exceeds 15 lines, move its details to a new file in the `tasks/` directory following the naming convention `task-fr<feature number>-<feature name>.md` and replace the content in `tasks.md` with a link to that file. When moving a feature, ensure all related 'PR.<number> Fix' sections or sub-tasks are also moved to the same file to keep related history together.
@@ -74,7 +81,9 @@ P0.15.1 When all items are completed in a specific task file under `tasks/`, mov
 P0.15.2 To ensure compliance with P0.15 and P0.15.1, you must perform a line-count audit of all sections in `tasks.md` and check completion status of task files before finalizing any task. You can use `wc -l` on extracted sections or manually count them when reading the file.
 
 ---
+
 ## TCR Workflow
+
 # Something we should try out
 
 ---
@@ -90,7 +99,7 @@ T1.3.3 You MUST NEVER write tests at the Controller layer. Controllers are deliv
 T1.3.4 Disallowed by default (unless explicitly instructed or for service data layer): browser/UI integration tests, real network calls, end-to-end tests, full-stack HTTP tests.
 T1.3.5 Allowed by default: in-process “integration” tests that do not require a browser and do not make real network calls (for example, repository tests using in-memory or file-backed fakes).
 T1.3.6 Service Data Layer Integration: Tests located in `src/service/test/integration/` MUST be integration tests that hit real external services, databases, or file systems. They must not use fakes or mocks for the primary IO target of that module. Integration test files must not use the word "integration" in their name; instead, they should be named after the behavior or component they test (e.g., `GeminiImageGenerator.test.ts`).
-T1.3.6 In RED you must stop and verify the failed test before proceeding.  Show me the failed test before proceeding and ask me whether to proceed to the GREEN step
+T1.3.6 In RED you must stop and verify the failed test before proceeding. Show me the failed test before proceeding and ask me whether to proceed to the GREEN step
 T1.4 In GREEN, write only the minimum production code required to pass the single failing test; no extra functionality.
 T1.5 After GREEN, you MUST explicitly ask for permission to commit using: `feat: <task-id>: <behavior>`. After the commit, ask whether to push or continue.
 T1.5.1 After tests run GREEN, you MUST restart the website and services using `yarn dev` in the background and verify no errors are outputted. Fix any errors that occur during startup or runtime.
@@ -156,6 +165,7 @@ A1.5.4 Persistence and API details must not leak into UI components or domain lo
 A1.6 Backend Onion Architecture (Command + Controller + Request/Response DTOs):
 A1.6.1 Commands represent user commands/use-cases. Each command is responsible for executing exactly one use-case.
 A1.6.2 Controllers are delivery-mechanism adapters and must be pass-through only:
+
 - Accept delivery-specific input (HTTP, queue, RPC, etc.)
 - Translate it into a pure request data object with delivery concerns stripped
 - Call the command to carry out the use case
@@ -182,14 +192,16 @@ R1.3 Hooks may orchestrate IO by calling injected repositories, but must not emb
 R1.4 No useEffect inside React components. useEffect may exist only inside hooks.
 R1.5 Avoid spaghetti JSX. Extract mapping/conditions into small, well-named domain components.
 R1.6 Component naming must be domain-oriented and must not include unnecessary technical suffixes (Component, View, Module, Modal, Input). Use domain ideas instead.
-R1.7 Use guard clauses by extracting conditional rendering into a domain component that returns null when not applicable. 
+R1.7 Use guard clauses by extracting conditional rendering into a domain component that returns null when not applicable.
 Example (Good):
+
 ```typescript
-const Report = ({questions}: ReportProps) => {
+const Report = ({ questions }: ReportProps) => {
   if (questions.length === 0) return null;
   return <View>...</View>;
-}
+};
 ```
+
 R1.8 Tests: default to hook-layer tests (React Hook Testing Library) and then unit tests for lower-level pure functions.
 
 ---
@@ -204,32 +216,37 @@ Q1.3 Do not keep appending new behavior into one file. Refactor by extracting we
 Q1.4 Functions should read like well-written prose and communicate domain intent. Prefer guard clauses and small composed functions over nested conditionals. Deeply nested conditionals or loops (more than 2 levels) are strictly forbidden. Conditionals or Loops must be extracted to small, well-named composed functions whose name explains what it does in well-written prose (no technical terms). Use functional patterns (like `find`, `map`, `filter`) to keep logic flat and readable.
 
 Example (Bad):
+
 ```typescript
 const lifestyleCount = params.lifestyleCount || 0;
 for (let i = 0; i < lifestyleCount; i++) {
-  const imageUrl = await this.dataLayer.generateImage({ 
+  const imageUrl = await this.dataLayer.generateImage({
     type: 'lifestyle',
     prompt: 'a lifestyle shot of a product',
-    productImage: params.productImage
+    productImage: params.productImage,
   });
   images.push(imageUrl);
 }
 ```
 
 Example (Good):
+
 ```typescript
 await lifestyleImages(params.lifestyleCount, params.productImage, images);
 
 async function lifestyleImages(count: number = 0, productImage: string, images: string[]) {
   for (let i = 0; i < count; i++) {
-    images.push(await dataLayer.generateImage({ 
-      type: 'lifestyle',
-      prompt: 'a lifestyle shot of a product',
-      productImage
-    }));
+    images.push(
+      await dataLayer.generateImage({
+        type: 'lifestyle',
+        prompt: 'a lifestyle shot of a product',
+        productImage,
+      }),
+    );
   }
 }
 ```
+
 Q1.5 Minimize state and side effects; keep pure logic in `domain/` for backend and for client under `src\client\domain.
 Q1.6 Function placement: Always put functions being called from the parent, below the parent. The primary/parent component or function in a file must be at the top.
 Q1.8 Strictly FORBID the use of JavaScript/TypeScript classes. All code must follow the functional module pattern. Use plain functions and objects. Data should be passed as arguments, and dependencies should be handled through function parameters or factory functions. This ensures better testability, simpler composition, and adheres to Clean Code principles in a functional style.
@@ -313,6 +330,7 @@ OUTSIDE-IN FLOW:
 <Layer 1> -> <Layer 2> -> <Layer 3> -> ...
 
 PLAN:
+
 1. <Phase name>
    RED:
    - Test name: <business behavior test name>
@@ -320,17 +338,21 @@ PLAN:
    - Intent: <one sentence describing the behavior we’re defining>
 
    GREEN:
+
    - Minimal implementation: <one sentence>
    - Files expected to change: <paths>
 
    COMMIT:
+
    - Proposed message: feat: <task-id>: <behavior>
 
    REFACTOR:
+
    - Candidate refactors (only if needed): <one sentence>
    - Files expected to change: <paths>
 
    COMMIT (only if refactor happened):
+
    - Proposed message: feat: <task-id>: refactor: <behavior>
 
 2. <Next Phase name>
@@ -341,25 +363,29 @@ PLAN:
    - Intent: <...>
 
    GREEN:
+
    - Minimal implementation: <...>
    - Files expected to change: <...>
 
    COMMIT:
+
    - Proposed message: feat: <task-id>: <behavior>
 
    REFACTOR:
+
    - Candidate refactors (only if needed): <...>
 
 3. Cleanup & Verification
    - Run all tests
    - Fix linting errors
-   COMMIT:
+     COMMIT:
    - Proposed message: feat: <task-id>: cleanup: <behavior>
 
 Do you want me to proceed with this plan?
 ```
 
 Phase-gating message template (must be used between phases):
+
 ```
 I have completed Phase <n> (<phase name>).
 
@@ -381,6 +407,7 @@ OUTSIDE-IN FLOW:
 <Layer 1> -> <Layer 2> -> <Layer 3> -> ...
 
 PLAN:
+
 1. <Phase name>
    - Goal: <one sentence>
    - Changes: <what files/areas will change>
@@ -402,6 +429,7 @@ Do you want me to proceed with this plan?
 ### Appendix B — `tdd.log` Entry Template (TDD only)
 
 Use this structure when appending to `tdd.log`. Each section must reference the PLAN step number.
+
 ```
 GOAL: <use case in business language>
 PLAN STEP: <phase.step>
@@ -454,6 +482,7 @@ USER DECISION: <commit? push?>
 ```
 
 ### Appendix C — Example `tdd.log` Entry (canonical)
+
 ```
 GOAL: rollback shows decremented current version on system-prompt page
 ----------------------------------------------------------------------
@@ -493,6 +522,7 @@ TEST OUTPUT: GREEN - All tests passing
 ### Appendix D — Test Naming Examples
 
 Bad examples (do not use):
+
 ```
 describe('AdobeTypekitClient', () => {
 describe('addFontCommand', () => {
@@ -508,6 +538,7 @@ test('clears all images when clearImages is called')
 ```
 
 Good examples (use this style):
+
 ```
 describe('Adobe Typekit Client', () => {
 describe('Add Font', () => {
@@ -522,6 +553,7 @@ test('returns filled-outer image')
 ### Appendix E — Naming and File Structure Examples
 
 Preferred:
+
 ```
 registration/register.tsx
 billing/make-payment.tsx
@@ -530,6 +562,7 @@ src/seo/repositories/PromptRepository.ts
 ```
 
 Avoid:
+
 ```
 UserView.js
 EditableTagListView.tsx

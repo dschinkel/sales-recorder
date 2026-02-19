@@ -25,23 +25,13 @@
   },
   "header_dir": "reacthermes",
   "dependencies": {
-    "React-cxxreact": [
-      "0.76.5"
-    ],
-    "React-jsiexecutor": [
-      "0.76.5"
-    ],
+    "React-cxxreact": ["0.76.5"],
+    "React-jsiexecutor": ["0.76.5"],
     "React-jsinspector": [],
-    "React-perflogger": [
-      "0.76.5"
-    ],
-    "RCT-Folly": [
-      "2024.01.01.00"
-    ],
+    "React-perflogger": ["0.76.5"],
+    "RCT-Folly": ["2024.01.01.00"],
     "DoubleConversion": [],
-    "fmt": [
-      "9.1.0"
-    ],
+    "fmt": ["9.1.0"],
     "glog": [],
     "hermes-engine": [],
     "React-jsi": [],
