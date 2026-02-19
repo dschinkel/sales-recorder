@@ -12,7 +12,7 @@ ACK: TASKS_READ
   - Initialized React Native boilerplate.
   - Configured `app.json` with Expo metadata.
   - Installed `eas-cli`, `expo`, and `expo-dev-client`.
-  - Created `eas.json` with `development`, `preview`, and `production` profiles.
+  - Created `eas.json` with `developme"upnt`, `preview`, and `production` profiles.
 ## F.1.3 Formatted report with Answers [COMPLETED]
 - [x] **F.1.3** Run on iOS Simulator with Development Client
 - [x] **F.1.3.0** Topic Answers
@@ -64,6 +64,10 @@ ACK: TASKS_READ
 ### F.11 Add prettier js to the project [COMPLETED]
 - [x] Re-read GUIDELINES.MD AND PROJECT_SPEC.MD
 - [x] **F.11.0** Use `eslint-config-prettier` to avoid conflicts between ESLint and Prettier.
+
+### F.12 Update guidelines for task management [COMPLETED]
+- [x] Re-read GUIDELINES.MD AND PROJECT_SPEC.MD
+- [x] F.12.0 Update GUIDELINES.md with rules for header alignment, completion tagging, auto-feature creation, and fix logging.
 
 ## PR.1.2 Fix [COMPLETED]
 

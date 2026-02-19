@@ -106,20 +106,15 @@ Report generated on convesation
 ## F.9.Email the transcript
 
     9.0 Provide a way to email the transcript.
-
-    F.10 [COMPLETED] Build and Deploy script
+## F.10. Create an iOS Deploy Script (local deploy for testing)
     10.0 Create a script to automate the build, install, and launch process for the iOS simulator in Release mode.
         10.0.1 Create one shell script called deploy, that can be run using yarn. The first part of this script will run this command:
         `xcodebuild
 
--workspace ios/salesrecorder.xcworkspace
--scheme salesrecorder
--configuration Release
--destination 'platform=iOS Simulator,name=iPhone 17 Pro'
-CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" AD_HOC_CODE_SIGNING_ALLOWED=YES`        10.0.2 If the script in 10.0.1 ran successfully, then this script should run:
-           `xcrun simctl install booted ios/build/Build/Products/Release-iphonesimulator/salesrecorder.app`        10.0.3 Then run this script last which refreshes the app in the simulator:
-           `xcrun simctl launch`
-
-## F.11. Add prettier js to the project [COMPLETED]
+## F.11 Add prettier js to the project [COMPLETED]
 
 F.11.0 [COMPLETED] Use the `eslint-config-prettier` lib so that ESLint no longer checks formatting rules that Prettier controls, so they can’t “fight.” ESLint focuses on code-quality rules; Prettier formats.
+
+## F.12 Update guidelines for task management [COMPLETED]
+
+F.12.0 [COMPLETED] Update GUIDELINES.md with rules for header alignment, completion tagging, auto-feature creation, and fix logging.
