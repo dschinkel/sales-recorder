@@ -48,6 +48,9 @@ G1.10.3 You must include the same feature header as seen in `PROJECT_SPEC.md` fo
 G1.10.4 Only when a feature is implemented and has been pushed to the remote repo should `[COMPLETED]` be added to that header in both `tasks.md` and `PROJECT_SPEC.md`.
 G1.10.5 Anytime the user asks to do something new without giving you a feature number to work on, you MUST add the new feature in `PROJECT_SPEC.md` first to ensure consistent versioning and numbering of features.
 G1.10.6 If the user says "fix" or "bug," you MUST log it as a fix in `tasks.md` with a proper title (e.g., `## Fix: <Description>`). You do not need to add it as a feature in `PROJECT_SPEC.md`.
+G1.10.7 You MUST NEVER overwrite or delete existing features or tasks in `PROJECT_SPEC.md` or `tasks.md` when adding new ones. Always append or insert new items while preserving the existing history and numbering.
+G1.10.8 Feature sections in `tasks.md` MUST be separated by an extra line return (two empty lines between sections) to improve readability and whitespace.
+G1.10.9 After each Feature title or task line in `PROJECT_SPEC.md` and `tasks.md`, you MUST add two spaces at the end of the line to force a markdown line return.
 
 G1.11 Use domain language for files, functions, variables, tests, and modules. Do not include implementation details or technical words in variable names.
 G1.11.1 Example: instead of `downloadPromises`, use a domain-specific name like `images` if they represent the images being downloaded.
@@ -68,6 +71,9 @@ P0.13.3 You must include the same feature header as seen in `PROJECT_SPEC.md` fo
 P0.13.4 Only when a feature is implemented and has been pushed to the remote repo should `[COMPLETED]` be added to that header in both `tasks.md` and `PROJECT_SPEC.md`.
 P0.13.5 Anytime the user asks to do something new without giving you a feature number to work on, you MUST add the new feature in `PROJECT_SPEC.md` first to ensure consistent versioning and numbering of features.
 P0.13.6 If the user says "fix" or "bug," you MUST log it as a fix in `tasks.md` with a proper title (e.g., `## Fix: <Description>`). You do not need to add it as a feature in `PROJECT_SPEC.md`.
+P0.13.7 You MUST NEVER overwrite or delete existing features or tasks in `PROJECT_SPEC.md` or `tasks.md` when adding new ones. Always append or insert new items while preserving the existing history and numbering.
+P0.13.8 Feature sections in `tasks.md` MUST be separated by an extra line return (two empty lines between sections) to improve readability and whitespace.
+P0.13.9 After each Feature title or task line in `PROJECT_SPEC.md` and `tasks.md`, you MUST add two spaces at the end of the line to force a markdown line return.
 P0.14 If asked for an out of bounds fix, relate it to the current task and append the information to `tasks.md` using the following format:
 
 ```markdown

@@ -7,3 +7,4 @@ Usually the llm reads GUIDELINES.md and follows the outside-in TDD properly mean
 
  It usually appends each plan to the tdd.log after it's done implementing a feature.  But again weird, it did not this time for this project.  It has in past projects
 
+It won't stop auto commit / push. I told it to first stop and show me the commit message.
