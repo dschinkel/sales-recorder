@@ -71,6 +71,12 @@ ACK: TASKS_READ
 - [x] Re-read GUIDELINES.MD AND PROJECT_SPEC.MD  
 - [x] F.12.0 Update GUIDELINES.md with rules for header alignment, completion tagging, auto-feature creation, and fix logging.  
   
+  
+### F.13 Add missing linting libraries [COMPLETED]  
+- [x] Re-read GUIDELINES.MD AND PROJECT_SPEC.MD  
+- [x] F.13.0 Add `eslint-plugin-sonarjs` to support cognitive complexity rules.  
+- [x] F.13.1 Verify `eslint-plugin-react-hooks` and `eslint-plugin-import` are present.  
+  
 ## Fix: PR.1.2 [COMPLETED]  
   
 ### Fix for compile error, Development Build mismatch, and ReactAppDependencyProvider missing  

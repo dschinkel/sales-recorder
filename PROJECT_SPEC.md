@@ -108,3 +108,8 @@ What do you build first to learn the most, second to learn the most?
 ## F.12 Update guidelines for task management [COMPLETED]  
   
 - F.12.0 [COMPLETED] Update GUIDELINES.md with rules for header alignment, completion tagging, auto-feature creation, and fix logging.  
+  
+## F.13 Add missing linting libraries [COMPLETED]  
+  
+- F.13.0 [COMPLETED] Add `eslint-plugin-sonarjs` to support cognitive complexity rules.  
+- F.13.1 [COMPLETED] Verify `eslint-plugin-react-hooks` and `eslint-plugin-import` are present.  
