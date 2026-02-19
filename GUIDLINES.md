@@ -44,6 +44,10 @@ P0.10 At the very end of a task (after all steps and cleanup), you MUST mark the
 G1.10 When asked to add a new feature, you must always add it at the higher level in `PROJECT_SPEC.md` first, then break that out into smaller tasks second in `tasks.md` using the `PROJECT_SPEC` feature number.
 G1.10.1 Ensure that new behaviors (adding new functionality, UI elements, or logic) are treated as **Features** (FR.x) and not as "Fixes". A "Fix" (PR.x) is strictly for correcting existing behavior that is broken or not meeting the original spec. If a "Fix" actually introduces new behavior, it must be promoted to a Feature in `PROJECT_SPEC.md` and `tasks.md`.
 G1.10.2 Every task created in `tasks.md` (whether by the user or the agent) MUST have as its first acceptance criterion: `- Re-read GUIDELINES.MD AND PROJECT_SPEC.MD`.
+G1.10.3 You must include the same feature header as seen in `PROJECT_SPEC.md` for a specific feature and its subtasks in `tasks.md`.
+G1.10.4 Only when a feature is implemented and has been pushed to the remote repo should `[COMPLETED]` be added to that header in both `tasks.md` and `PROJECT_SPEC.md`.
+G1.10.5 Anytime the user asks to do something new without giving you a feature number to work on, you MUST add the new feature in `PROJECT_SPEC.md` first to ensure consistent versioning and numbering of features.
+G1.10.6 If the user says "fix" or "bug," you MUST log it as a fix in `tasks.md` with a proper title (e.g., `## Fix: <Description>`). You do not need to add it as a feature in `PROJECT_SPEC.md`.
 
 G1.11 Use domain language for files, functions, variables, tests, and modules. Do not include implementation details or technical words in variable names.
 G1.11.1 Example: instead of `downloadPromises`, use a domain-specific name like `images` if they represent the images being downloaded.
@@ -60,6 +64,10 @@ Bad: `feat: UI Enhancement: Step 1: Frontend: UI: displays shot type display ver
 P0.13 When asked to add a new feature, you must always add it at the higher level in `PROJECT_SPEC.md` first, then break that out into smaller tasks second in `tasks.md` using the `PROJECT_SPEC` feature number.
 P0.13.1 Ensure that new behaviors (adding new functionality, UI elements, or logic) are treated as **Features** (FR.x) and not as "Fixes". A "Fix" (PR.x) is strictly for correcting existing behavior that is broken or not meeting the original spec. If a "Fix" actually introduces new behavior, it must be promoted to a Feature in `PROJECT_SPEC.md` and `tasks.md`.
 P0.13.2 Every task created in `tasks.md` (whether by the user or the agent) MUST have as its first acceptance criterion: `- Re-read GUIDELINES.MD AND PROJECT_SPEC.MD`.
+P0.13.3 You must include the same feature header as seen in `PROJECT_SPEC.md` for a specific feature and its subtasks in `tasks.md`.
+P0.13.4 Only when a feature is implemented and has been pushed to the remote repo should `[COMPLETED]` be added to that header in both `tasks.md` and `PROJECT_SPEC.md`.
+P0.13.5 Anytime the user asks to do something new without giving you a feature number to work on, you MUST add the new feature in `PROJECT_SPEC.md` first to ensure consistent versioning and numbering of features.
+P0.13.6 If the user says "fix" or "bug," you MUST log it as a fix in `tasks.md` with a proper title (e.g., `## Fix: <Description>`). You do not need to add it as a feature in `PROJECT_SPEC.md`.
 P0.14 If asked for an out of bounds fix, relate it to the current task and append the information to `tasks.md` using the following format:
 
 ```markdown
